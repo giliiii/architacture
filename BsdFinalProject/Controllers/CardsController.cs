@@ -17,7 +17,8 @@ namespace BsdFinalProject.Controllers
         public async Task<ActionResult<IEnumerable<CardDto>>> GetAll()
         {
             var list = await _context.Card
-                .Select(c => new CardDto {
+                .Select(c => new CardDto
+                {
                     Id = c.Id,
                     UserId = c.UserId,
                     GiftId = c.GiftId,

@@ -17,7 +17,8 @@ namespace BsdFinalProject.Controllers
         public async Task<ActionResult<IEnumerable<GiftDto>>> GetAll()
         {
             var list = await _context.Gift
-                .Select(g => new GiftDto {
+                .Select(g => new GiftDto
+                {
                     Id = g.Id,
                     Name = g.Name,
                     Description = g.Description,
@@ -36,7 +37,8 @@ namespace BsdFinalProject.Controllers
         {
             var g = await _context.Gift.FindAsync(id);
             if (g == null) return NotFound();
-            var dto = new GiftDto {
+            var dto = new GiftDto
+            {
                 Id = g.Id,
                 Name = g.Name,
                 Description = g.Description,
@@ -53,7 +55,8 @@ namespace BsdFinalProject.Controllers
         public async Task<ActionResult<GiftDto>> Create(CreateGiftDto create)
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
-            var gift = new Gift {
+            var gift = new Gift
+            {
                 Name = create.Name,
                 Description = create.Description,
                 Cost = create.Cost,
@@ -63,7 +66,8 @@ namespace BsdFinalProject.Controllers
             };
             _context.Gift.Add(gift);
             await _context.SaveChangesAsync();
-            var dto = new GiftDto {
+            var dto = new GiftDto
+            {
                 Id = gift.Id,
                 Name = gift.Name,
                 Description = gift.Description,

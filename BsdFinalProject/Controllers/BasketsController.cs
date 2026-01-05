@@ -4,18 +4,27 @@ using BsdFinalProject.DTOs;
 using BsdFinalProject.Models;
 using BsdFinalProject.Services;
 using FinalProject.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 namespace FinalProject.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class BasketsController : ControllerBase
     {
         private readonly SaleContext _context;
         private readonly BasketService _BasketService;
-        public BasketsController(SaleContext context) => _context = context;
+        //public BasketsController(SaleContext context) => _context = context;
+
+        public BasketsController(BasketService basketService, SaleContext context)
+        {
+            _BasketService = basketService;
+            _context = context;
+        }
 
         /*[HttpGet]
         public async Task<ActionResult<IEnumerable<BasketDto>>> GetAll()
@@ -32,7 +41,12 @@ namespace FinalProject.Controllers
 
         [HttpGet("{id:int}")]
         public async Task<ActionResult<List<BasketDto>>> GetAllMyBasket(int id)
+
         {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
+                return Unauthorized();
+
             var Baskets = await _BasketService.GetAllMyBasket(id);
 
             if (Baskets == null)
@@ -46,6 +60,10 @@ namespace FinalProject.Controllers
         [HttpPost]
         public async Task<ActionResult<BasketDto>> CreateNewBasket(CreateBasketDto b)
         {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
+                return Unauthorized();
+
             var basket = await _BasketService.CreateNewBasket(b);
             if (basket == null)
             {
@@ -60,6 +78,10 @@ namespace FinalProject.Controllers
         [HttpDelete("{id:int}")]
         public async Task<ActionResult<BasketDto>> DeleteOneBasket(int id)
         {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
+                return Unauthorized();
+
             var basket = await _BasketService.DeleteOneBasket(id);
             if (basket == null) return null;
             return basket;
@@ -67,6 +89,10 @@ namespace FinalProject.Controllers
         [HttpDelete]
         public async Task<bool> DeleteAllBasket(int id)
         {
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userId == null)
+                return false;
+
             return await _BasketService.DeleteAllBasket(id);
 
         }

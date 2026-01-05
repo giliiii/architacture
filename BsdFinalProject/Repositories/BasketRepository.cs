@@ -1,4 +1,4 @@
-using AutoMapper;
+//using AutoMapper;
 using BsdFinalProject.Data;
 using BsdFinalProject.Models;
 using Chocolate.Data;
@@ -9,7 +9,7 @@ namespace FinalProject.Repositories
     public class BasketRepository
     {
         SaleContext _context = SaleContextFactory.CreateContext();
-        private readonly IMapper _mapper;
+        //private readonly IMapper _mapper;
 
 
         public async Task<IEnumerable<Basket>> GetAllMyBasket(int Id)

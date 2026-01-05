@@ -2,6 +2,11 @@
 
 namespace BsdFinalProject.Models
 {
+    public enum Role
+    {
+        Manager,
+        User
+    }
     public class User
     {
         public int Id { get; set; }
@@ -13,5 +18,6 @@ namespace BsdFinalProject.Models
         public List<Card> CardsList { get; set; }
         public List<Basket> BasketList { get; set; }
         public string Password { get; set; }
+        public Role Role { get; set; }
     }
 }

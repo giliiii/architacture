@@ -7,8 +7,10 @@ namespace FinalProject.Services
     public class BasketService
     {
         private readonly BasketRepository _repository = new();
+
         public async Task<List<BasketDto>> GetAllMyBasket(int Id)
         {
+
             var Baskets = (await _repository.GetAllMyBasket(Id)).ToList();
 
             //לבדוק שה user קיים ע"י שליחה לפונקציה של ה user
@@ -39,7 +41,7 @@ namespace FinalProject.Services
         public async Task<BasketDto> DeleteOneBasket(int id)
         {
             Basket B = await _repository.DeleteOneBasket(id);
-            if (B == null)return null;
+            if (B == null) return null;
             BasketDto bd = new();
             bd.Id = B.Id;
             bd.UserId = B.UserId;
@@ -48,7 +50,7 @@ namespace FinalProject.Services
         }
         public async Task<bool> DeleteAllBasket(int id)
         {
-            var deleted =await _repository.DeleteAllBasket(id);
+            var deleted = await _repository.DeleteAllBasket(id);
             return !deleted ? false : true;
 
         }

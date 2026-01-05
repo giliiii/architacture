@@ -23,13 +23,13 @@ namespace BsdFinalProject.Services
             _config = config;
         }
 
-        public async Task<(bool Success, string? Token, string? Error)> RegisterAsync(CreateUserDto dto)
+        public async Task<(bool Success, string? Token, string? Error)> UserRegister(CreateUserDto dto)
         {
             // basic validation
             if (string.IsNullOrWhiteSpace(dto.EMail) || string.IsNullOrWhiteSpace(dto.Password))
                 return (false, null, "Email and password are required.");
 
-            var existing = await _repo.GetByEmailAsync(dto.EMail);
+            var existing = await _repo.GetByEmail(dto.EMail);
             if (existing != null) return (false, null, "Email already in use.");
 
             // hash password
@@ -41,12 +41,29 @@ namespace BsdFinalProject.Services
                 EMail = dto.EMail,
                 Phone = dto.Phone,
                 Address = dto.Address,
-                Password = hashed
+                Password = hashed,
+                Role = Role.User
             };
 
-            var created = await _repo.CreateAsync(user);
+            var created = await _repo.CreateUser(user);
 
             var token = CreateToken(created);
+            return (true, token, null);
+        }
+
+        // New: Login implementation
+        public async Task<(bool Success, string? Token, string? Error)> LoginAsync(LoginDto dto)
+        {
+            if (dto == null || string.IsNullOrWhiteSpace(dto.EMail) || string.IsNullOrWhiteSpace(dto.Password))
+                return (false, null, "Email and password are required.");
+
+            var user = await _repo.GetByEmail(dto.EMail);
+            if (user == null) return (false, null, "Invalid credentials.");
+
+            if (string.IsNullOrEmpty(user.Password) || !VerifyPassword(user.Password, dto.Password))
+                return (false, null, "Invalid credentials.");
+
+            var token = CreateToken(user);
             return (true, token, null);
         }
 
@@ -61,9 +78,14 @@ namespace BsdFinalProject.Services
 
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-                new Claim(JwtRegisteredClaimNames.Email, user.EMail ?? string.Empty),
-                new Claim("name", user.FullName ?? string.Empty)
+                //new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
+                //new Claim(JwtRegisteredClaimNames.Email, user.EMail ?? string.Empty),
+                //new Claim("name", user.FullName ?? string.Empty),
+                new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
+                new Claim(ClaimTypes.Email, user.EMail ?? string.Empty),
+                new Claim("name", user.FullName ?? string.Empty),
+                new Claim(ClaimTypes.Role, user.Role.ToString()),
+
             };
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));

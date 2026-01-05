@@ -4,26 +4,28 @@ using BsdFinalProject.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using Microsoft.OpenApi.Models;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
+});
 
 // register repo + service
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<UserService>();
 
-// JWT configuration example: put these values in appsettings.json in production
-// builder.Configuration["Jwt:Key"] = "...";
-// builder.Configuration["Jwt:Issuer"] = "...";
-// builder.Configuration["Jwt:Audience"] = "...";
-// builder.Configuration["Jwt:ExpireMinutes"] = "60";
+// DbContext
+builder.Services.AddDbContext<SaleContext>(options =>
+    options.UseSqlServer("Server=Srv2\\pupils;DataBase=ProjectDB;Integrated Security=SSPI;Persist Security Info=False;TrustServerCertificate=True;"));
 
+// JWT configuration example: put these values in appsettings.json in production
 var key = builder.Configuration["Jwt:Key"];
 if (!string.IsNullOrEmpty(key))
 {
@@ -46,18 +48,24 @@ if (!string.IsNullOrEmpty(key))
     });
 }
 
-builder.Services.AddDbContext<SaleContext>(options =>
-        options.UseSqlServer("Server=Srv2\\pupils;DataBase=ProjectDB;Integrated Security=SSPI;Persist Security Info=False;TrustServerCertificate=True;"));
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseDeveloperExceptionPage();
+    app.UseSwagger();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+        c.RoutePrefix = string.Empty; // Swagger UI at app root
+    });
 }
 
-app.UseHttpsRedirection();
+app.UseHttpsRedirection();      
+
+app.UseRouting();
+
 app.UseAuthentication();
 app.UseAuthorization();
 

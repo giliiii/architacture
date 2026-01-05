@@ -1,7 +1,8 @@
 using BsdFinalProject.Data;
 using BsdFinalProject.Models;
-using System.Threading.Tasks;
+using Chocolate.Data;
 using Microsoft.EntityFrameworkCore;
+using System.Threading.Tasks;
 
 namespace BsdFinalProject.Repositories
 {
@@ -9,13 +10,13 @@ namespace BsdFinalProject.Repositories
     {
         SaleContext _context = SaleContextFactory.CreateContext();
 
-        public async Task<User?> GetByEmailAsync(string email)
+        public async Task<User?> GetByEmail(string email)
         {
             return await _context.User
                 .FirstOrDefaultAsync(u => u.EMail == email);
         }
 
-        public async Task<User> CreateAsync(User user)
+        public async Task<User> CreateUser(User user)
         {
             _context.User.Add(user);
             await _context.SaveChangesAsync();
