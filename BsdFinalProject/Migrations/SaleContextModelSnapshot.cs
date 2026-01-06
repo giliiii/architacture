@@ -220,7 +220,9 @@ namespace BsdFinalProject.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<int>("Role")
-                        .HasColumnType("int");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(1);
 
                     b.HasKey("Id");
 

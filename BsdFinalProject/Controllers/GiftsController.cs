@@ -1,6 +1,9 @@
 using BsdFinalProject.Data;
 using BsdFinalProject.DTOs;
 using BsdFinalProject.Models;
+using BsdFinalProject.Services;
+using FinalProject.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,99 +14,78 @@ namespace BsdFinalProject.Controllers
     public class GiftsController : ControllerBase
     {
         private readonly SaleContext _context;
-        public GiftsController(SaleContext context) => _context = context;
+        private readonly GiftService _giftService ;
+        //public BasketsController(SaleContext context) => _context = context;
+
+        public GiftsController(GiftService giftService, SaleContext context)
+        {
+            _giftService = giftService;
+            _context = context;
+        }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<GiftDto>>> GetAll()
+        public async Task<ActionResult<GiftDto>> GetAllGifts()
         {
-            var list = await _context.Gift
-                .Select(g => new GiftDto
-                {
-                    Id = g.Id,
-                    Name = g.Name,
-                    Description = g.Description,
-                    Cost = g.Cost,
-                    Picture = g.Picture,
-                    CategoryId = g.CategoryId,
-                    DonorId = g.DonorId,
-                    WinnerName = g.WinnerName
-                })
-                .ToListAsync();
-            return Ok(list);
+            var gifts = await _giftService.GetAllGifts();
+            return Ok(gifts);
         }
-
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<GiftDto>> GetById(int id)
+        public async Task<ActionResult<GiftDto>> GetGiftById(int id)
         {
-            var g = await _context.Gift.FindAsync(id);
-            if (g == null) return NotFound();
-            var dto = new GiftDto
+            var gift = await _giftService.GetGiftById(id);
+            if (gift == null)
             {
-                Id = g.Id,
-                Name = g.Name,
-                Description = g.Description,
-                Cost = g.Cost,
-                Picture = g.Picture,
-                CategoryId = g.CategoryId,
-                DonorId = g.DonorId,
-                WinnerName = g.WinnerName
-            };
-            return Ok(dto);
+                return NotFound(new { message = $"Gift with ID {id} not found." });
+            }
+            return Ok(gift);
         }
-
         [HttpPost]
-        public async Task<ActionResult<GiftDto>> Create(CreateGiftDto create)
+        [Authorize(Roles = "Manager")]
+        public async Task<ActionResult<GiftDto>> CreateNewGift(GiftDto create)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-            var gift = new Gift
-            {
-                Name = create.Name,
-                Description = create.Description,
-                Cost = create.Cost,
-                Picture = create.Picture,
-                CategoryId = create.CategoryId,
-                DonorId = create.DonorId
-            };
-            _context.Gift.Add(gift);
-            await _context.SaveChangesAsync();
-            var dto = new GiftDto
-            {
-                Id = gift.Id,
-                Name = gift.Name,
-                Description = gift.Description,
-                Cost = gift.Cost,
-                Picture = gift.Picture,
-                CategoryId = gift.CategoryId,
-                DonorId = gift.DonorId,
-                WinnerName = gift.WinnerName
-            };
-            return CreatedAtAction(nameof(GetById), new { id = dto.Id }, dto);
+            
+            var createdGift = await _giftService.CreateNewGift(create);
+            return CreatedAtAction(nameof(GetGiftById), new { id = createdGift.Id }, createdGift);
         }
-
         [HttpPut("{id:int}")]
-        public async Task<IActionResult> Update(int id, CreateGiftDto update)
+        [Authorize(Roles = "Manager")]
+        public async Task<ActionResult<GiftDto>> UpdateGift(int id, GiftDto update)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-            var gift = await _context.Gift.FindAsync(id);
-            if (gift == null) return NotFound();
-            gift.Name = update.Name;
-            gift.Description = update.Description;
-            gift.Cost = update.Cost;
-            gift.Picture = update.Picture;
-            gift.CategoryId = update.CategoryId;
-            gift.DonorId = update.DonorId;
-            await _context.SaveChangesAsync();
-            return NoContent();
+            if (id != update.Id)
+            {
+                return BadRequest(new { message = "ID mismatch." });
+            }
+            var updatedGift = await _giftService.UpdateGift(update);
+            if (updatedGift == null)
+            {
+                return NotFound(new { message = $"Gift with ID {id} not found." });
+            }
+            return Ok(updatedGift);
+        }
+        [HttpDelete("{id:int}")]
+        [Authorize(Roles = "Manager")]
+        public async Task<ActionResult<GiftDto>> DeleteGift(int id)
+        {
+            var deletedGift = await _giftService.DeleteGift(id);
+            if (deletedGift == null)
+            {
+                return NotFound(new { message = $"Gift with ID {id} not found." });
+            }
+            return Ok(deletedGift);
+        }
+        [HttpGet("category/{categoryId:int}")]
+        public async Task<ActionResult<List<GiftDto>>> GetGiftsByCategory(int categoryId)
+        {
+            var gifts = await _giftService.GetGiftsByCategoryId(categoryId);
+            return (gifts == null? null : gifts);
+        }
+        [HttpGet("cost/{price1:int}/{price2:int}")]
+        public async Task<ActionResult<List<GiftDto>>> GetGiftsByCost(int price1, int price2)
+        {
+            var gifts = await _giftService.GetGiftsByCostRange(price1, price2);
+            return (gifts == null ? null : gifts);
         }
 
-        [HttpDelete("{id:int}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var gift = await _context.Gift.FindAsync(id);
-            if (gift == null) return NotFound();
-            _context.Gift.Remove(gift);
-            await _context.SaveChangesAsync();
-            return NoContent();
-        }
+        
     }
 }

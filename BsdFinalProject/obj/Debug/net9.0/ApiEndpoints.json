@@ -61,7 +61,7 @@
     "Parameters": [
       {
         "Name": "id",
-        "Type": "System.Int32",
+        "Type": "",
         "IsRequired": true
       }
     ],
@@ -214,7 +214,7 @@
   },
   {
     "ContainingType": "BsdFinalProject.Controllers.CategoriesController",
-    "Method": "GetAll",
+    "Method": "GetAllCategories",
     "RelativePath": "api/Categories",
     "HttpMethod": "GET",
     "IsController": true,
@@ -222,7 +222,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[BsdFinalProject.DTOs.CategoryDto, BsdFinalProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.List\u00601[[BsdFinalProject.DTOs.CategoryDto, BsdFinalProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -234,33 +234,7 @@
   },
   {
     "ContainingType": "BsdFinalProject.Controllers.CategoriesController",
-    "Method": "Create",
-    "RelativePath": "api/Categories",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "create",
-        "Type": "BsdFinalProject.DTOs.CreateCategoryDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "BsdFinalProject.DTOs.CategoryDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "BsdFinalProject.Controllers.CategoriesController",
-    "Method": "GetById",
+    "Method": "GetCategoryById",
     "RelativePath": "api/Categories/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -285,45 +259,8 @@
     ]
   },
   {
-    "ContainingType": "BsdFinalProject.Controllers.CategoriesController",
-    "Method": "Update",
-    "RelativePath": "api/Categories/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "update",
-        "Type": "BsdFinalProject.DTOs.CreateCategoryDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BsdFinalProject.Controllers.CategoriesController",
-    "Method": "Delete",
-    "RelativePath": "api/Categories/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "BsdFinalProject.Controllers.DonorsController",
-    "Method": "GetAll",
+    "Method": "GetAllDonors",
     "RelativePath": "api/Donors",
     "HttpMethod": "GET",
     "IsController": true,
@@ -331,7 +268,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[BsdFinalProject.DTOs.DonorDto, BsdFinalProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BsdFinalProject.Models.Donor, BsdFinalProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -343,14 +280,14 @@
   },
   {
     "ContainingType": "BsdFinalProject.Controllers.DonorsController",
-    "Method": "Create",
+    "Method": "CreateNewDonor",
     "RelativePath": "api/Donors",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "create",
+        "Name": "donorDto",
         "Type": "BsdFinalProject.DTOs.CreateDonorDto",
         "IsRequired": true
       }
@@ -369,7 +306,59 @@
   },
   {
     "ContainingType": "BsdFinalProject.Controllers.DonorsController",
-    "Method": "GetById",
+    "Method": "UpdateDonor",
+    "RelativePath": "api/Donors",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "donorDto",
+        "Type": "BsdFinalProject.DTOs.DonorDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BsdFinalProject.DTOs.DonorDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BsdFinalProject.Controllers.DonorsController",
+    "Method": "DeleteDonor",
+    "RelativePath": "api/Donors",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "BsdFinalProject.DTOs.DonorDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BsdFinalProject.Controllers.DonorsController",
+    "Method": "GetDonorById",
     "RelativePath": "api/Donors/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -395,52 +384,21 @@
   },
   {
     "ContainingType": "BsdFinalProject.Controllers.DonorsController",
-    "Method": "Update",
-    "RelativePath": "api/Donors/{id}",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "update",
-        "Type": "BsdFinalProject.DTOs.CreateDonorDto",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BsdFinalProject.Controllers.DonorsController",
-    "Method": "Delete",
-    "RelativePath": "api/Donors/{id}",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "BsdFinalProject.Controllers.GiftsController",
-    "Method": "GetAll",
-    "RelativePath": "api/Gifts",
+    "Method": "GetDonorGifts",
+    "RelativePath": "api/Donors/{id}/gifts",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
-    "Parameters": [],
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[BsdFinalProject.DTOs.GiftDto, BsdFinalProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[BsdFinalProject.Models.Gift, BsdFinalProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -452,7 +410,27 @@
   },
   {
     "ContainingType": "BsdFinalProject.Controllers.GiftsController",
-    "Method": "Create",
+    "Method": "GetAllGifts",
+    "RelativePath": "api/Gifts",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "BsdFinalProject.DTOs.GiftDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BsdFinalProject.Controllers.GiftsController",
+    "Method": "CreateNewGift",
     "RelativePath": "api/Gifts",
     "HttpMethod": "POST",
     "IsController": true,
@@ -460,7 +438,7 @@
     "Parameters": [
       {
         "Name": "create",
-        "Type": "BsdFinalProject.DTOs.CreateGiftDto",
+        "Type": "BsdFinalProject.DTOs.GiftDto",
         "IsRequired": true
       }
     ],
@@ -478,7 +456,7 @@
   },
   {
     "ContainingType": "BsdFinalProject.Controllers.GiftsController",
-    "Method": "GetById",
+    "Method": "GetGiftById",
     "RelativePath": "api/Gifts/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -504,7 +482,7 @@
   },
   {
     "ContainingType": "BsdFinalProject.Controllers.GiftsController",
-    "Method": "Update",
+    "Method": "UpdateGift",
     "RelativePath": "api/Gifts/{id}",
     "HttpMethod": "PUT",
     "IsController": true,
@@ -517,15 +495,25 @@
       },
       {
         "Name": "update",
-        "Type": "BsdFinalProject.DTOs.CreateGiftDto",
+        "Type": "BsdFinalProject.DTOs.GiftDto",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "BsdFinalProject.DTOs.GiftDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "BsdFinalProject.Controllers.GiftsController",
-    "Method": "Delete",
+    "Method": "DeleteGift",
     "RelativePath": "api/Gifts/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -537,7 +525,74 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [
+      {
+        "Type": "BsdFinalProject.DTOs.GiftDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BsdFinalProject.Controllers.GiftsController",
+    "Method": "GetGiftsByCategory",
+    "RelativePath": "api/Gifts/category/{categoryId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoryId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BsdFinalProject.DTOs.GiftDto, BsdFinalProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "BsdFinalProject.Controllers.GiftsController",
+    "Method": "GetGiftsByCost",
+    "RelativePath": "api/Gifts/cost/{price1}/{price2}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "price1",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "price2",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[BsdFinalProject.DTOs.GiftDto, BsdFinalProject, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "BsdFinalProject.Controllers.ManegersController",

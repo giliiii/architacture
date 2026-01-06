@@ -40,18 +40,19 @@ namespace FinalProject.Controllers
         }*/
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<List<BasketDto>>> GetAllMyBasket(int id)
+        public async Task<ActionResult<List<BasketDto>>> GetAllMyBasket()
 
         {
             var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             if (userId == null)
                 return Unauthorized();
+            int UId=int.Parse(userId);
 
-            var Baskets = await _BasketService.GetAllMyBasket(id);
+            var Baskets = await _BasketService.GetAllMyBasket(UId);
 
             if (Baskets == null)
             {
-                return NotFound(new { message = $"Basket with ID {id} not found." });
+                return NotFound(new { message = $"Basket with ID {UId} not found." });
             }
 
             return Ok(Baskets);

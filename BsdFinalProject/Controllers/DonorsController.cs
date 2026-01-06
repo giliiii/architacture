@@ -1,6 +1,8 @@
 using BsdFinalProject.Data;
 using BsdFinalProject.DTOs;
 using BsdFinalProject.Models;
+using BsdFinalProject.Services;
+using FinalProject.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,59 +13,86 @@ namespace BsdFinalProject.Controllers
     public class DonorsController : ControllerBase
     {
         private readonly SaleContext _context;
-        public DonorsController(SaleContext context) => _context = context;
+        private readonly DonorService _DonorService;
+        //public BasketsController(SaleContext context) => _context = context;
 
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<DonorDto>>> GetAll()
+        public DonorsController(DonorService donorService, SaleContext context)
         {
-            var list = await _context.Donor
-                .Select(d => new DonorDto {
-                    Id = d.Id,
-                    Name = d.Name,
-                    Email = d.EMail
-                })
-                .ToListAsync();
-            return Ok(list);
+            _DonorService = donorService;
+            _context = context;
         }
-
-        [HttpGet("{id:int}")]
-        public async Task<ActionResult<DonorDto>> GetById(int id)
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Donor>>> GetAllDonors()
         {
-            var d = await _context.Donor.FindAsync(id);
-            if (d == null) return NotFound();
-            return Ok(new DonorDto { Id = d.Id, Name = d.Name, Email = d.EMail });
+            var donors = await _DonorService.GetAllDonors();
+            return Ok(donors);
+        }
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<DonorDto>> GetDonorById(int id)
+        {
+            var donor = await _DonorService.GetDonorById(id);
+            if (donor == null)
+            {
+                return NotFound(new { message = $"Donor with ID {id} not found." });
+            }
+            return Ok(donor);
         }
 
         [HttpPost]
-        public async Task<ActionResult<DonorDto>> Create(CreateDonorDto create)
+        public async Task<ActionResult<DonorDto>> CreateNewDonor(CreateDonorDto donorDto)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-            var donor = new Donor { Name = create.Name, EMail = create.Email };
-            _context.Donor.Add(donor);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetById), new { id = donor.Id }, new DonorDto { Id = donor.Id, Name = donor.Name, Email = donor.EMail });
+            try
+            {
+                var createdDonor = await _DonorService.CreateNewDonor(donorDto);
+                if (createdDonor == null)
+                {
+                    return BadRequest(new { message = "Failed to create donor." });
+                }
+                return CreatedAtAction(nameof(GetDonorById), new { id = createdDonor.Id }, createdDonor);
+
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+
+           }
+        [HttpPut]
+        public async Task<ActionResult<DonorDto>> UpdateDonor(DonorDto donorDto)
+        {
+            var updatedDonor = await _DonorService.UpdateDonor(donorDto);
+            if (updatedDonor == null)
+            {
+                return NotFound(new { message = $"Donor with ID {donorDto.Id} not found." });
+            }
+            return Ok(updatedDonor);
+        }
+        [HttpDelete]
+        public async Task<ActionResult<DonorDto>?> DeleteDonor(int id)
+        {
+            var deletedDonor = await _DonorService.DeleteDonor(id);
+            if (deletedDonor == null)
+            {
+                return NotFound(new { message = $"Donor with ID {id} not found." });
+            }
+            return Ok(deletedDonor);
+
         }
 
-        [HttpPut("{id:int}")]
-        public async Task<IActionResult> Update(int id, CreateDonorDto update)
+        [HttpGet]
+        [Route("{id:int}/gifts")]
+        public async Task<ActionResult<IEnumerable<Gift>>> GetDonorGifts(int id)
         {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-            var donor = await _context.Donor.FindAsync(id);
-            if (donor == null) return NotFound();
-            donor.Name = update.Name;
-            donor.EMail = update.Email;
-            await _context.SaveChangesAsync();
-            return NoContent();
+            var gifts = await _DonorService.GetDonorGiftList(id);
+            if (gifts == null || !gifts.Any())
+            {
+                return NotFound(new { message = $"No gifts found for Donor with ID {id}." });
+            }
+            return Ok(gifts);
         }
 
-        [HttpDelete("{id:int}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var donor = await _context.Donor.FindAsync(id);
-            if (donor == null) return NotFound();
-            _context.Donor.Remove(donor);
-            await _context.SaveChangesAsync();
-            return NoContent();
-        }
+
+
+
     }
 }

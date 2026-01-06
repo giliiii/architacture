@@ -52,7 +52,7 @@ namespace BsdFinalProject.Data
                 entity.HasMany(e => e.GiftsList)
                       .WithOne(e => e.Donor)
                       .HasForeignKey(e => e.DonorId)
-                      .OnDelete(DeleteBehavior.Restrict); ;
+                      .OnDelete(DeleteBehavior.Cascade); 
 
             });
             // Gift configuration
@@ -68,7 +68,7 @@ namespace BsdFinalProject.Data
                 entity.HasMany(e => e.CardsList)
                       .WithOne(e => e.Gift)
                       .HasForeignKey(e => e.GiftId)
-                      .OnDelete(DeleteBehavior.Restrict);
+                      .OnDelete(DeleteBehavior.Cascade);
 
             });
             // User configuration
@@ -77,16 +77,18 @@ namespace BsdFinalProject.Data
                 entity.HasKey(e => e.Id);
                 entity.HasMany(e => e.BasketList)
                       .WithOne(e => e.User)
-                      .HasForeignKey(e => e.UserId);
+                      .HasForeignKey(e => e.UserId)
+                       .OnDelete(DeleteBehavior.Cascade);
                 entity.HasMany(e => e.CardsList)
                       .WithOne(e => e.User)
-                      .HasForeignKey(e => e.UserId);
+                      .HasForeignKey(e => e.UserId)
+                      .OnDelete(DeleteBehavior.Cascade); 
                 entity.Property(e => e.FullName).IsRequired().HasMaxLength(100);
                 entity.HasIndex(e => e.EMail).IsUnique();
-
                 entity.Property(e => e.Phone).HasMaxLength(20);
                 entity.Property(e => e.Address).HasMaxLength(500);
                 entity.HasIndex(e => e.EMail).IsUnique();
+                entity.Property(e => e.Role).HasDefaultValue(Role.User);
 
             });
 

@@ -1,6 +1,8 @@
 using BsdFinalProject.Data;
 using BsdFinalProject.Repositories;
 using BsdFinalProject.Services;
+using FinalProject.Repositories;
+using FinalProject.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -20,6 +22,18 @@ builder.Services.AddSwaggerGen(c =>
 // register repo + service
 builder.Services.AddScoped<UserRepository>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<BasketRepository>();
+builder.Services.AddScoped<BasketService>();
+builder.Services.AddScoped<GiftRepository>();
+builder.Services.AddScoped<GiftService>();
+builder.Services.AddScoped<CategoryRepository>();
+builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<CardRepository>();
+builder.Services.AddScoped<CardService>();
+builder.Services.AddScoped<DonorRepository>();
+builder.Services.AddScoped<DonorService>();
+builder.Services.AddScoped<WinnerRepository>();
+builder.Services.AddScoped<WinnerService>();
 
 // DbContext
 builder.Services.AddDbContext<SaleContext>(options =>

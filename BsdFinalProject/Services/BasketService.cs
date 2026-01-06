@@ -1,21 +1,18 @@
 ﻿using BsdFinalProject.DTOs;
 using BsdFinalProject.Models;
 using BsdFinalProject.Repositories;
+using BsdFinalProject.Services;
 using FinalProject.Repositories;
 namespace FinalProject.Services
 {
     public class BasketService
     {
         private readonly BasketRepository _repository = new();
-
+        private readonly GiftService _Gservice = new();
         public async Task<List<BasketDto>> GetAllMyBasket(int Id)
         {
 
             var Baskets = (await _repository.GetAllMyBasket(Id)).ToList();
-
-            //לבדוק שה user קיים ע"י שליחה לפונקציה של ה user
-            //לבדוק שה gift קיים ע"י שליחה לפונקציה של ה gift
-
             List<BasketDto> b = new();
             for (int i = 0; i < Baskets.Count; i++)
             {
@@ -30,7 +27,8 @@ namespace FinalProject.Services
         }
         public async Task<CreateBasketDto> CreateNewBasket(CreateBasketDto basket)
         {
-
+            var gift = await _Gservice.GetGiftById(basket.GiftId);
+            if (gift == null) return null;
             Basket b = new();
             b.UserId = basket.UserId;
             b.GiftId = basket.GiftId;
@@ -40,7 +38,10 @@ namespace FinalProject.Services
         }
         public async Task<BasketDto> DeleteOneBasket(int id)
         {
+            
             Basket B = await _repository.DeleteOneBasket(id);
+            var gift = await _Gservice.GetGiftById(B.GiftId);
+            if (gift == null) return null;
             if (B == null) return null;
             BasketDto bd = new();
             bd.Id = B.Id;

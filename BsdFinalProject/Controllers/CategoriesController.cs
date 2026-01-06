@@ -1,6 +1,7 @@
 using BsdFinalProject.Data;
 using BsdFinalProject.DTOs;
 using BsdFinalProject.Models;
+using BsdFinalProject.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -11,57 +12,30 @@ namespace BsdFinalProject.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly SaleContext _context;
-        public CategoriesController(SaleContext context) => _context = context;
+        private readonly CategoryService _categoryService;
+      
+        public CategoriesController(CategoryService categoryService, SaleContext context)
+        {
+            _categoryService = categoryService;
+            _context = context;
+        }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<CategoryDto>>> GetAll()
+        public async Task<ActionResult<List<CategoryDto>>> GetAllCategories()
         {
-            var list = await _context.Category
-                .Select(c => new CategoryDto {
-                    Id = c.Id,
-                    Name = c.Name
-                })
-                .ToListAsync();
-            return Ok(list);
+            var categories = await _categoryService.GetAllCategories();
+            return Ok(categories);
         }
-
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<CategoryDto>> GetById(int id)
+        public async Task<ActionResult<CategoryDto>> GetCategoryById(int id)
         {
-            var c = await _context.Category.FindAsync(id);
-            if (c == null) return NotFound();
-            return Ok(new CategoryDto { Id = c.Id, Name = c.Name });
+            var category = await _categoryService.GetCategoryById(id);
+            if (category == null)
+            {
+                return NotFound(new { message = $"Category with ID {id} not found." });
+            }
+            return Ok(category);
         }
 
-        [HttpPost]
-        public async Task<ActionResult<CategoryDto>> Create(CreateCategoryDto create)
-        {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-            var category = new Category { Name = create.Name };
-            _context.Category.Add(category);
-            await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetById), new { id = category.Id }, new CategoryDto { Id = category.Id, Name = category.Name });
-        }
-
-        [HttpPut("{id:int}")]
-        public async Task<IActionResult> Update(int id, CreateCategoryDto update)
-        {
-            if (!ModelState.IsValid) return BadRequest(ModelState);
-            var category = await _context.Category.FindAsync(id);
-            if (category == null) return NotFound();
-            category.Name = update.Name;
-            await _context.SaveChangesAsync();
-            return NoContent();
-        }
-
-        [HttpDelete("{id:int}")]
-        public async Task<IActionResult> Delete(int id)
-        {
-            var category = await _context.Category.FindAsync(id);
-            if (category == null) return NotFound();
-            _context.Category.Remove(category);
-            await _context.SaveChangesAsync();
-            return NoContent();
-        }
     }
 }
