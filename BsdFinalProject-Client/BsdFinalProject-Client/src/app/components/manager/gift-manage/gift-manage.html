@@ -1,0 +1,285 @@
+
+   <p-toast />
+        <!-- <div class="card flex flex-wrap gap-6 items-center justify-between">
+            <p-fileupload #fu mode="basic" chooseLabel="Choose" chooseIcon="pi pi-upload" name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onUpload($event)" />
+            <p-button label="Upload" (onClick)="fu.upload()" severity="secondary" />
+        </div> -->
+    <!-- <input type="file" #fileInput accept="image/*" style="display:none" (change)="onFileSelected($event)" />
+    <button type="button" (click)="fileInput.click()"> </button>     -->
+    <!-- <button (click)="fileInput.click()">XXXX</button>
+    <input type="file" #fileInput accept="image/*" (change)="selectImage($event)" hidden>
+    <img *ngIf="imagePath" [src]="imagePath">
+   -->
+
+   <p-fileupload name="giftImage" [customUpload]="true" (onSelect)="onSelectFiles($event)" [auto]="true" [showUploadButton]="false" [showCancelButton]="false" accept="image/*">
+    <ng-template #file let-file>
+        <div class="flex flex-col items-center gap-2">
+            <img *ngIf="newGiftPicture" [src]="newGiftPicture" width="150" height="150" />
+            <p-button label="בחר תמונה" icon="pi pi-images" (onClick)="file.choose()" />
+        </div>
+    </ng-template>
+   </p-fileupload>
+
+
+  <p-panel header="חיפוש וסינון מתנות" [toggleable]="true" [collapsed]="false" class="mb-4">
+        <div class="grid grid-rows-1 lg:grid-rows-3 gap-4 items-end">
+            <!-- Search by gift name -->
+            <div class="flex flex-col">
+                <label for="giftName" class="block mb-2 font-semibold text-sm">חיפוש לפי שם מתנה</label>
+                <span class="p-input-icon-right w-full">
+                    <i class="pi pi-search"></i>
+                    <input 
+                        id="giftName"
+                        type="text" 
+                        pInputText
+                        [(ngModel)]="searchByGiftName"
+                        (input)="onGiftNameChange()"
+                        placeholder="הקלד שם מתנה..."
+                        class="w-full" />
+                </span>
+            </div>
+
+            <!-- Search by donor dropdown -->
+            <div class="flex flex-col">
+                <label for="donorSelect" class="block mb-2 font-semibold text-sm">סינון לפי תורם</label>
+                <p-select 
+                    id="donorSelect"
+                    [(ngModel)]="selectedDonor" 
+                    [options]="donors" 
+                    optionLabel="name"
+                    [showClear]="true"
+                    placeholder="בחר תורם..."
+                    (onChange)="onDonorChange()"
+                    styleClass="w-full">
+                </p-select>
+            </div>
+
+            <!-- Clear filters button -->
+            <div class="flex justify-center">
+                <button 
+                    pButton 
+                    type="button" 
+                    label="נקה סינונים" 
+                    icon="pi pi-times"
+                    (click)="clearFilters()"
+                    severity="secondary"
+                    [text]="true">
+                </button>
+            </div>
+        </div>
+  </p-panel>
+  <p-toast /> 
+<p-dialog [(visible)]="displayDialog" header="עדכון מתנה" [modal]="true" [style]="{width: '400px'}">
+  <div class="form-group">
+    <label for="newGiftName">שם המתנה:</label>
+    <input pInputText id="newGiftName" [(ngModel)]="newGiftName" type="text" placeholder="הכנס שם" class="form-input"/>
+  </div>
+  
+  <div class="form-group">
+    <label for="newGiftDescription">תיאור:</label>
+    <input pInputText id="newGiftDescription" [(ngModel)]="newGiftDescription" type="text" placeholder="הכנס תיאור" class="form-input"/>
+  </div>
+
+  <div class="form-group">
+    <label for="newGiftCost">מחיר:</label>
+    <input pInputText id="newGiftCost" [(ngModel)]="newGiftCost" type="number" placeholder="הכנס מחיר" class="form-input"/>
+  </div>
+
+  <div class="form-group">
+    <label for="newGiftPicture">תמונה:</label>
+    <input pInputText id="newGiftPicture" [(ngModel)]="newGiftPicture" type="text" placeholder="הכנס נתיב לתמונה" class="form-input"/>
+  </div>
+
+  <div class="form-group">
+    <label for="newGiftCategoryId">קטגוריה:</label>
+    <p-select 
+      id="newGiftCategoryId"
+      [(ngModel)]="selectedCategory" 
+      [options]="categoryOptions " 
+      optionLabel="label" 
+      optionValue="value"
+      placeholder="בחר קטגוריה"
+      appendTo="body"
+      class="w-full">
+    </p-select>
+  </div>
+  
+  <ng-template pTemplate="footer">
+    <button pButton type="button" label="ביטול" (click)="closeDialog2()" class="p-button-danger"></button>
+    <button pButton type="button" label="שמור" (click)="updateGiftDetails()" class="p-button-success"></button>
+  </ng-template>
+</p-dialog>
+
+
+<p-dialog [(visible)]="displayDialog2" header="הוסף מתנה חדש" [modal]="true" [style]="{width: '400px'}">
+  <div class="form-group">
+    <label for="giftName">שם המתנה:</label>
+    <input pInputText id="giftName" [(ngModel)]="newGiftname" type="text" placeholder="הכנס שם" class="form-input"/>
+  </div>
+  
+  <div class="form-group">
+    <label for="giftDescription">תיאור:</label>
+    <input pInputText id="giftDescription" [(ngModel)]="newGiftdescription" type="text" placeholder="הכנס תיאור" class="form-input"/>
+  </div>
+
+  <div class="form-group">
+    <label for="giftCost">עלות:</label>
+    <input pInputText id="giftCost" [(ngModel)]="newGiftcost" type="number" placeholder="הכנס עלות" class="form-input"/>
+  </div>
+
+  <div class="form-group">
+    <label for="giftDonor">תורם:</label>
+    <p-select 
+        id="giftDonor"
+        [(ngModel)]="newGiftdonorId" 
+        [options]="donors" 
+        optionLabel="name"
+        placeholder="בחר תורם..."
+        styleClass="w-full"
+        appendTo="body">
+    </p-select>
+    </div>
+
+    <div class="form-group">
+    <label for="giftCategory">קטגוריה:</label>
+    <p-select 
+        id="giftCategory"
+        [(ngModel)]="newGiftcategoryId" 
+        [options]="categories" 
+        optionLabel="name"
+        placeholder="בחר קטגוריה..."
+        styleClass="w-full"
+        appendTo="body">
+    </p-select>
+    </div>
+
+    <div class="form-group">
+    <label for="giftPicture">תמונה (URL):</label>   
+    <input pInputText id="giftPicture" [(ngModel)]="newGiftpicture" type="text" placeholder="הכנס URL לתמונה" class="form-input"/>
+    <p-fileupload name="giftImage" [customUpload]="true" (onSelect)="onSelectFiles($event)" [auto]="true" [showUploadButton]="false" [showCancelButton]="false" accept="image/*">
+     <ng-template #file let-file>
+        <div class="flex flex-col items-center gap-2">
+            <img *ngIf="newGiftPicture" [src]="newGiftPicture" width="150" height="120" />
+            <p-button label="בחר תמונה" icon="pi pi-images" (onClick)="file.choose()" />
+        </div>
+    </ng-template>
+   </p-fileupload> 
+   </div>
+  <ng-template pTemplate="footer">
+    <button pButton type="button" label="ביטול" (click)="closeDialog2()" class="p-button-danger"></button>
+    <button pButton type="button" label="שמור" (click)="addNewGift()" class="p-button-success"></button>
+  </ng-template>
+</p-dialog>
+
+ <div class="button-container">
+    <button pButton type="button" label="הוסף מתנה חדשה" icon="pi pi-plus" (click)="showAddGiftDialog()" class="p-button-success"></button>
+</div>
+<div class="card">
+    <p-dataview [value]="gifts" [layout]="layout">
+
+        <!-- HEADER -->
+        <ng-template #header>
+            <div class="flex justify-end">
+                <p-selectbutton
+                    [(ngModel)]="layout"
+                    [options]="options"
+                    [allowEmpty]="false">
+                </p-selectbutton>
+            </div>
+        </ng-template>
+
+        <!-- LIST VIEW -->
+        <ng-template #list let-items>
+            <div *ngFor="let item of items; let first = first">
+                <div
+                    class="flex flex-col sm:flex-row sm:items-center p-6 gap-4"
+                    [ngClass]="{ 'border-top-1 surface-border': !first }">
+
+                    <!-- IMAGE -->
+                    <div class="md:w-40">
+                        <img
+                            class="block mx-auto rounded w-full"
+                            [src]="item.picture || 'assets/no-image.png'"
+                            [alt]="item.name" />
+                    </div>
+
+                    <!-- DETAILS -->
+                    <div class="flex flex-col md:flex-row justify-between flex-1 gap-6">
+                        <div>
+                            <div class="text-lg font-medium">{{ item.name }}</div>
+                            <div class="text-sm text-surface-500 mt-1">
+                                קטגוריה: {{ item.categoryId }}
+                            </div>
+                            <div class="text-sm text-surface-500">
+                                תורם: {{ item.donorId }}
+                            </div>
+
+                            <div *ngIf="item.winnerName" class="mt-2 text-green-600 font-medium">
+                                זוכה: {{ item.winnerName }}
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col items-end gap-3">
+                            <span class="text-xl font-semibold">
+                                {{ formatCost(item.cost) }}
+                            </span>
+                            <button pButton label="פרטים" icon="pi pi-eye"></button>
+                            <button pButton label="מחיקת מתנה" icon="pi pi-trash" (click)="deleteGift(item.id)"></button>
+                            <div class="button-container">
+                                  <button pButton type="button" label="עדכון מתנה" icon="pi pi-pencil" (click)="openUpdateGiftDialog(item)" class="p-button-success"></button>
+                            </div>                         
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+        <!-- GRID VIEW -->
+        <ng-template #grid let-items>
+            <div class="grid grid-cols-12 gap-4">
+                <div
+                    *ngFor="let item of items"
+                    class="col-span-12 sm:col-span-6 md:col-span-4 p-2">
+
+                    <div class="p-4 border rounded flex flex-col h-full">
+
+                        <img
+                            class="rounded mb-4"
+                            [src]="item.picture || 'assets/no-image.png'"
+                            [alt]="item.name" />
+
+                        <div class="text-lg font-medium">{{ item.name }}</div>
+
+                        <div class="text-sm text-surface-500">
+                            קטגוריה: {{ item.categoryId }}
+                        </div>
+
+                        <div class="mt-auto">
+                            <div class="text-xl font-semibold mt-4">
+                                {{ formatCost(item.cost) }}
+                            </div>
+
+                            <div *ngIf="item.winnerName" class="text-green-600 text-sm mt-2">
+                                זוכה: {{ item.winnerName }}
+                            </div>
+
+                            <button
+                                pButton
+                                label="פרטים"
+                                icon="pi pi-eye"
+                                class="w-full mt-3">
+                            </button>
+                            <button pButton label="מחיקת מתנה" icon="pi pi-trash" (click)="deleteGift(item.id)"></button>
+                            <div class="button-container">
+                                  <button pButton type="button" label="עדכון מתנה" icon="pi pi-pencil" (click)="openUpdateGiftDialog(item)" class="p-button-success"></button>
+                            </div> 
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+    </p-dataview>
+</div>

@@ -1,0 +1,8 @@
+::ng-deep .p-dropdown-panel {
+  max-height: 300px;  /* הגדרת גובה מקסימלי */
+  overflow-y: auto;   /* אפשר גלילה כאשר התוכן גדול מהגובה */
+}
+::ng-deep .p-dropdown-item {
+  font-size: 16px; /* הגדלת גודל הגופן של הפריטים */
+  padding: 10px;   /* הגדלת הריווח הפנימי של הפריטים */
+}

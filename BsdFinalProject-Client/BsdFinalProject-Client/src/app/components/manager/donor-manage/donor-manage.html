@@ -1,0 +1,102 @@
+ <div class="button-container">
+    <button pButton type="button" label="הוסף תורם חדש" icon="pi pi-plus" (click)="openAddDonorDialog()" class="p-button-success"></button>
+  </div>    
+<p-dialog [(visible)]="displayDialog" header="הוסף תורם חדש" [modal]="true" [style]="{width: '400px'}">
+  <div class="form-group">
+    <label for="donorName">שם התורם:</label>
+    <input pInputText id="donorName" [(ngModel)]="newDonorName" type="text" placeholder="הכנס שם" class="form-input"/>
+  </div>
+  
+  <div class="form-group">
+    <label for="donorEmail">דוא"ל:</label>
+    <input pInputText id="donorEmail" [(ngModel)]="newDonorEmail" type="email" placeholder="הכנס דוא״ל" class="form-input"/>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <button pButton type="button" label="ביטול" (click)="closeDialog()" class="p-button-danger"></button>
+    <button pButton type="button" label="שמור" (click)="addNewDonor()" class="p-button-success"></button>
+  </ng-template>
+</p-dialog>
+
+<!--dialog to see all tha gifts of one donor-->
+<p-dialog [(visible)]="displayGiftsDialog" header="מתנות של תורם" [modal]="true" [style]="{width: '600px'}">
+    <p-table [value]="donorGifts" dataKey="id" [tableStyle]="{ 'min-width': '30rem' }">
+        <ng-template #header>
+            <tr>
+                <th style="width:40%">שם המתנה</th>
+                <th style="width:20%">תיאור המתנה</th>
+                <th style="width:20%">מחיר מתנה</th>
+            </tr>
+        </ng-template>
+        <ng-template #body let-gift>
+            <tr>
+                <td>{{ gift.name }}</td>
+                <td>{{ gift.description }}</td>
+                <td>{{ gift.cost }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
+</p-dialog>
+    
+    <div class="card">
+            <p-toast />
+            <p-table [value]="donors" dataKey="id" editMode="row" [tableStyle]="{ 'min-width': '50rem' }">
+                <ng-template #header>
+                    <tr>
+                        <th style="width:22%">שם תורם</th>
+                        <th style="width:22%">כתובת מייל</th>
+                        <th style="width:12%">עדכון תורם</th>
+                        <th style="width:12%">מחיקת תורם</th>
+                        <th style="width:12%">הצגת מתנות</th>               
+                    </tr>
+                </ng-template>
+                <ng-template #body let-donor let-editing="editing" let-ri="rowIndex">
+                    <tr [pEditableRow]="donor">
+                        <td>
+                            <p-cellEditor>
+                                <ng-template #input>
+                                    <input pInputText type="text" [(ngModel)]="donor.Name" />
+                                </ng-template>
+                                <ng-template #output>
+                                    {{ donor.name}}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                            <p-cellEditor>
+                                <ng-template #input>
+                                    <input pInputText type="text" [(ngModel)]="donor.EMail" required />
+                                </ng-template>
+                                <ng-template #output>
+                                    {{ donor.email }}
+                                </ng-template>
+                            </p-cellEditor>
+                        </td>
+                        <td>
+                                                <div class="flex items-center justify-center gap-2">
+                                                    <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInit(donor)" text rounded severity="secondary"></button>
+                                                    <button *ngIf="editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="onRowEditSave(donor)" text rounded severity="secondary"></button>
+                                                    <button *ngIf="editing" pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" (click)="onRowEditCancel(donor, ri)" text rounded severity="secondary"></button>
+                                                </div>
+                        </td>
+                        <td>
+                            <button pButton type="button" icon="pi pi-trash" class="p-button-danger" (click)="deleteDonor(donor.id)"></button>
+                        </td>
+                         <td>
+                            <button pButton type="button" icon="pi pi-gift" class="p-button-info" (click)="viewDonorGifts(donor)"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        
+        <!-- <div><h1>hellow</h1></div>
+        <button click="a()">jjoooi</button>
+  @for(d of donors; track d.Id){
+        <tr>
+            <td>{{d.Name}}</td>
+        </tr>
+        } 
+  <tr *ngFor="let d of donors;">
+     <td>{{ d.Name }}</td>
+  </tr>             -->

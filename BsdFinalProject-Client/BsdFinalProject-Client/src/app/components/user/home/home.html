@@ -1,0 +1,160 @@
+<div class="card">
+    <!-- SEARCH AND FILTER SECTION -->
+    <div class="button-container">
+    </div>
+
+    <!-- Search by gift name -->
+    <div class="flex flex-col">
+        <label for="giftName" class="block mb-2 font-semibold text-sm">חיפוש לפי שם מתנה</label>
+        <span class="p-input-icon-right w-full">
+            <i class="pi pi-search"></i>
+            <input id="giftName" type="text" pInputText [(ngModel)]="searchByGiftName" (input)="onGiftNameChange()"
+                placeholder="הקלד שם מתנה..." class="w-full" />
+        </span>
+    </div>
+
+    <!-- Clear filters button -->
+    <div class="flex justify-center">
+        <button pButton type="button" label="נקה סינונים" icon="pi pi-times" (click)="clearFilters()"
+            severity="secondary" [text]="true">
+        </button>
+    </div>
+
+    <p-drawer header="Right Drawer" [(visible)]="visible2" position="right">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat.
+        </p>
+    </p-drawer>
+    <div class="flex gap-2 justify-center">
+        <p-button type="button" (click)="visible2 = true" icon="pi pi-arrow-left" />
+    </div>
+    <p-dataview [value]="filteredGifts" [layout]="layout" styleClass="mt-4">
+
+        <!-- HEADER -->
+        <ng-template #header>
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-bold" *ngIf="filteredGifts.length > 0">
+                    מתנות ({{ filteredGifts.length }})
+                </h2>
+                <h2 class="text-2xl font-bold text-red-600" *ngIf="filteredGifts.length === 0">
+                    לא נמצאו מתנות
+                </h2>
+                <p-selectbutton [(ngModel)]="layout" [options]="options" [allowEmpty]="false">
+                </p-selectbutton>
+            </div>
+        </ng-template>
+
+
+
+        <!-- LIST VIEW -->
+        <ng-template #list let-items>
+            <div class="space-y-3">
+                <div *ngFor="let item of items"
+                    class="surface-card p-4 rounded-lg border-1 surface-border hover:shadow-lg transition-shadow">
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-4">
+                        <!-- IMAGE -->
+                        <div class="sm:w-48 flex-shrink-0">
+                            <img class="w-full rounded-lg object-cover h-32" [src]="getImageUrl(item.picture)"
+                                [alt]="item.name" />
+                        </div>
+
+                        <!-- DETAILS -->
+                        <div class="flex flex-col justify-between flex-1 gap-3">
+                            <div>
+                                <div class="text-xl font-bold text-primary">{{ item.name }}</div>
+                                <div class="flex gap-4 mt-2 text-sm">
+                                    <div>
+                                        <span class="text-surface-500">קטגוריה:</span>
+                                        <p-tag [value]="item.categoryId " severity="info" styleClass="ml-2"></p-tag>
+                                    </div>
+                                    <div>
+                                        <span class="text-surface-500">תורם:</span>
+                                        <p-tag [value]="getDonorName(item.donorId)" severity="secondary"
+                                            styleClass="ml-2"></p-tag>
+                                    </div>
+                                </div>
+
+                                <div *ngIf="item.winnerName" class="mt-2">
+                                    <p-tag [value]="'זוכה: ' + item.winnerName" severity="success"
+                                        icon="pi pi-check"></p-tag>
+                                </div>
+                            </div>
+
+                            <div class="flex justify-between items-center pt-2 border-t-1 surface-border">
+                                <span class="text-2xl font-bold text-primary">
+                                    {{ formatCost(item.cost) }}
+                                </span>
+
+                                <button pButton label="פרטים" icon="pi pi-eye" severity="info" [rounded]="true">
+                                </button>
+                                <div class="button-container">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+        <!-- GRID VIEW -->
+        <ng-template #grid let-items>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div *ngFor="let item of items" class="p-0">
+                    <div
+                        class="surface-card rounded-lg overflow-hidden border-1 surface-border hover:shadow-lg transition-shadow flex flex-col h-full">
+                        <div class="relative overflow-hidden h-48">
+                            <img class="w-full h-full object-cover" [src]="getImageUrl(item.picture)"
+                                [alt]="item.name" />
+                        </div>
+
+                        <div class="p-4 flex flex-col flex-1">
+                            <div class="text-lg font-bold text-primary mb-2">{{ item.name }}</div>
+
+                            <div class="flex gap-2 mb-3">
+                                <p-tag [value]="item.categoryId " severity="info" [rounded]="true"></p-tag>
+                                <p-tag [value]="getDonorName(item.donorId)" severity="secondary"
+                                    [rounded]="true"></p-tag>
+                            </div>
+
+                            <div *ngIf="item.winnerName" class="mb-3">
+                                <p-tag [value]="'זוכה: ' + item.winnerName" severity="success" icon="pi pi-check"
+                                    [rounded]="true"></p-tag>
+                            </div>
+
+                            <div class="flex-1"></div>
+
+                            <div class="pt-3 border-t-1 surface-border">
+                                <div class="text-2xl font-bold text-primary mb-3">
+                                    {{ formatCost(item.cost) }}
+                                </div>
+                                <p-drawer header="Right Drawer" [(visible)]="visible2" position="right">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                                        consequat.
+                                    </p>
+                                </p-drawer>
+                                <div class="flex gap-2 justify-center">
+                                    <p-button type="button" (click)="visible2 = true" icon="pi pi-arrow-left" />
+                                </div>
+                                <button pButton label="פרטים" icon="pi pi-eye" severity="info" [rounded]="true"
+                                    class="w-full">
+                                </button>
+                                <div class="button-container">
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+    </p-dataview>
+
+</div>

@@ -1,0 +1,650 @@
+2026-01-31 21:33:14.082 +02:00 [DBG] Registered model binder providers, in the following order: ["Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BinderTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ServicesModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.BodyModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.HeaderModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FloatingPointTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.EnumTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DateTimeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.SimpleTypeModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.TryParseModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CancellationTokenModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ByteArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormFileModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.FormCollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.KeyValuePairModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.DictionaryModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ArrayModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.CollectionModelBinderProvider","Microsoft.AspNetCore.Mvc.ModelBinding.Binders.ComplexObjectModelBinderProvider"]
+2026-01-31 21:33:14.527 +02:00 [DBG] Hosting starting
+2026-01-31 21:33:14.700 +02:00 [INF] User profile is available. Using 'C:\Users\NehamaR\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2026-01-31 21:33:14.739 +02:00 [DBG] Reading data from file 'C:\Users\NehamaR\AppData\Local\ASP.NET\DataProtection-Keys\key-24c15d37-a0e3-4f67-b3be-e00c71a9f404.xml'.
+2026-01-31 21:33:14.792 +02:00 [DBG] Found key {24c15d37-a0e3-4f67-b3be-e00c71a9f404}.
+2026-01-31 21:33:14.823 +02:00 [DBG] Considering key {24c15d37-a0e3-4f67-b3be-e00c71a9f404} with expiration date 2026-04-03 19:41:52Z as default key.
+2026-01-31 21:33:14.841 +02:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.XmlEncryption.DpapiXmlDecryptor, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2026-01-31 21:33:14.852 +02:00 [DBG] Decrypting secret element using Windows DPAPI.
+2026-01-31 21:33:14.859 +02:00 [DBG] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=9.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2026-01-31 21:33:14.874 +02:00 [DBG] Opening CNG algorithm 'AES' from provider 'null' with chaining mode CBC.
+2026-01-31 21:33:14.881 +02:00 [DBG] Opening CNG algorithm 'SHA256' from provider 'null' with HMAC.
+2026-01-31 21:33:14.912 +02:00 [DBG] Using key {24c15d37-a0e3-4f67-b3be-e00c71a9f404} as the default key.
+2026-01-31 21:33:14.917 +02:00 [DBG] Key ring with default key {24c15d37-a0e3-4f67-b3be-e00c71a9f404} was loaded during application startup.
+2026-01-31 21:33:14.958 +02:00 [DBG] Middleware loaded
+2026-01-31 21:33:14.968 +02:00 [DBG] Middleware loaded. Script /_framework/aspnetcore-browser-refresh.js (16515 B).
+2026-01-31 21:33:14.978 +02:00 [DBG] Middleware loaded. Script /_framework/blazor-hotreload.js (799 B).
+2026-01-31 21:33:15.192 +02:00 [DBG] Middleware configuration started with options: {AllowedHosts = *, AllowEmptyHosts = True, IncludeFailureMessage = True}
+2026-01-31 21:33:15.198 +02:00 [DBG] Wildcard detected, all requests with hosts will be allowed.
+2026-01-31 21:33:15.229 +02:00 [DBG] Middleware loaded: DOTNET_MODIFIABLE_ASSEMBLIES=debug, __ASPNETCORE_BROWSER_TOOLS=true
+2026-01-31 21:33:15.664 +02:00 [INF] Now listening on: https://localhost:7097
+2026-01-31 21:33:15.669 +02:00 [INF] Now listening on: http://localhost:5097
+2026-01-31 21:33:15.672 +02:00 [DBG] Loaded hosting startup assembly BsdFinalProject
+2026-01-31 21:33:15.675 +02:00 [DBG] Loaded hosting startup assembly Microsoft.AspNetCore.Watch.BrowserRefresh
+2026-01-31 21:33:15.678 +02:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.ApiEndpointDiscovery
+2026-01-31 21:33:15.681 +02:00 [DBG] Loaded hosting startup assembly Microsoft.WebTools.BrowserLink.Net
+2026-01-31 21:33:15.703 +02:00 [DBG] Executing API description provider 'EndpointMetadataApiDescriptionProvider' from assembly Microsoft.AspNetCore.Mvc.ApiExplorer v9.0.0.0.
+2026-01-31 21:33:15.711 +02:00 [DBG] Executing API description provider 'DefaultApiDescriptionProvider' from assembly Microsoft.AspNetCore.Mvc.ApiExplorer v9.0.0.0.
+2026-01-31 21:33:15.905 +02:00 [INF] Application started. Press Ctrl+C to shut down.
+2026-01-31 21:33:15.908 +02:00 [INF] Hosting environment: Development
+2026-01-31 21:33:15.912 +02:00 [INF] Content root path: C:\גילי-מסלול\updated\BsdFinalProject
+2026-01-31 21:33:15.915 +02:00 [DBG] Hosting started
+2026-01-31 21:33:18.996 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5N" accepted.
+2026-01-31 21:33:19.015 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5N" started.
+2026-01-31 21:33:19.242 +02:00 [DBG] Connection 0HNJ0VUB6TJ5N established using the following protocol: "Tls13"
+2026-01-31 21:33:19.411 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7097/index.html - null null
+2026-01-31 21:33:20.017 +02:00 [DBG] Response markup is scheduled to include Browser Link script injection.
+2026-01-31 21:33:20.044 +02:00 [DBG] Response markup is scheduled to include browser refresh script injection.
+2026-01-31 21:33:20.083 +02:00 [DBG] Response markup was updated to include Browser Link script injection.
+2026-01-31 21:33:20.089 +02:00 [DBG] Response markup was updated to include browser refresh script injection.
+2026-01-31 21:33:20.096 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7097/index.html - 200 null text/html;charset=utf-8 712.4387ms
+2026-01-31 21:33:20.107 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7097/_framework/aspnetcore-browser-refresh.js - null null
+2026-01-31 21:33:20.111 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7097/_vs/browserLink - null null
+2026-01-31 21:33:20.180 +02:00 [DBG] Script injected: /_framework/aspnetcore-browser-refresh.js
+2026-01-31 21:33:20.199 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7097/_framework/aspnetcore-browser-refresh.js - 200 16515 application/javascript; charset=utf-8 91.9833ms
+2026-01-31 21:33:20.289 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7097/_vs/browserLink - 200 null text/javascript; charset=UTF-8 178.8469ms
+2026-01-31 21:33:20.346 +02:00 [INF] Request starting HTTP/2 GET https://localhost:7097/swagger/v1/swagger.json - null null
+2026-01-31 21:33:20.418 +02:00 [INF] Request finished HTTP/2 GET https://localhost:7097/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 72.5652ms
+2026-01-31 21:42:27.776 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5N" received FIN.
+2026-01-31 21:42:27.800 +02:00 [DBG] The connection queue processing loop for 0HNJ0VUB6TJ5N completed.
+2026-01-31 21:42:27.805 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5N" is closed. The last processed stream ID was 7.
+2026-01-31 21:42:27.808 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5N" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-01-31 21:42:27.835 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5N" stopped.
+2026-01-31 21:46:19.934 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5O" accepted.
+2026-01-31 21:46:19.988 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5O" started.
+2026-01-31 21:46:20.019 +02:00 [DBG] Connection 0HNJ0VUB6TJ5O established using the following protocol: "Tls13"
+2026-01-31 21:47:16.900 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5P" accepted.
+2026-01-31 21:47:16.905 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5P" started.
+2026-01-31 21:47:16.918 +02:00 [DBG] Connection 0HNJ0VUB6TJ5P established using the following protocol: "Tls13"
+2026-01-31 21:47:16.924 +02:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7097/api/Users/login - null null
+2026-01-31 21:47:16.941 +02:00 [DBG] OPTIONS requests are not supported
+2026-01-31 21:47:16.995 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/login'
+2026-01-31 21:47:17.000 +02:00 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2026-01-31 21:47:17.008 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 21:47:17.011 +02:00 [INF] CORS policy execution successful.
+2026-01-31 21:47:17.015 +02:00 [DBG] The request is a preflight request.
+2026-01-31 21:47:17.021 +02:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7097/api/Users/login - 204 null null 97.3219ms
+2026-01-31 21:47:17.024 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7097/api/Users/login - application/json 26
+2026-01-31 21:47:17.037 +02:00 [DBG] POST requests are not supported
+2026-01-31 21:47:17.041 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/login'
+2026-01-31 21:47:17.045 +02:00 [DBG] Endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)' with route pattern 'api/Users/login' is valid for the request path '/api/Users/login'
+2026-01-31 21:47:17.049 +02:00 [DBG] Request matched endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 21:47:17.052 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 21:47:17.054 +02:00 [INF] CORS policy execution successful.
+2026-01-31 21:47:17.192 +02:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-01-31 21:47:17.200 +02:00 [INF] Executing endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 21:47:17.259 +02:00 [INF] Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BsdFinalProject.DTOs.LoginDto) on controller BsdFinalProject.Controllers.UsersController (BsdFinalProject).
+2026-01-31 21:47:17.266 +02:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-01-31 21:47:17.270 +02:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-01-31 21:47:17.274 +02:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-01-31 21:47:17.278 +02:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-01-31 21:47:17.282 +02:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-01-31 21:47:17.288 +02:00 [DBG] Executing controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 21:47:17.595 +02:00 [DBG] An 'IServiceProvider' was created for internal use by Entity Framework.
+2026-01-31 21:47:17.618 +02:00 [DBG] Executed controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 21:47:17.645 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' ...
+2026-01-31 21:47:17.653 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' using the name '' in request data ...
+2026-01-31 21:47:17.660 +02:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2026-01-31 21:47:17.675 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5P", Request id "0HNJ0VUB6TJ5P:00000003": started reading request body.
+2026-01-31 21:47:17.679 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5P", Request id "0HNJ0VUB6TJ5P:00000003": done reading request body.
+2026-01-31 21:47:17.703 +02:00 [DBG] JSON input formatter succeeded, deserializing to type 'BsdFinalProject.DTOs.LoginDto'
+2026-01-31 21:47:17.706 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 21:47:17.710 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 21:47:17.714 +02:00 [DBG] Attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' ...
+2026-01-31 21:47:17.727 +02:00 [DBG] Done attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 21:47:17.734 +02:00 [DBG] The request has model state errors, returning an error response.
+2026-01-31 21:47:17.738 +02:00 [DBG] Request was short circuited at action filter 'Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter'.
+2026-01-31 21:47:17.744 +02:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-01-31 21:47:17.754 +02:00 [DBG] No information found on request to perform content negotiation.
+2026-01-31 21:47:17.757 +02:00 [DBG] Attempting to select the first output formatter in the output formatters list which supports a content type from the explicitly specified content types '["application/problem+json","application/problem+xml","application/problem+json","application/problem+xml"]'.
+2026-01-31 21:47:17.766 +02:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/problem+json' to write the response.
+2026-01-31 21:47:17.770 +02:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-01-31 21:47:17.804 +02:00 [INF] Executed action BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject) in 515.1641ms
+2026-01-31 21:47:17.808 +02:00 [INF] Executed endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 21:47:17.814 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7097/api/Users/login - 400 null application/problem+json; charset=utf-8 789.3827ms
+2026-01-31 21:47:20.221 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5O" received FIN.
+2026-01-31 21:47:20.225 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5O" is closed. The last processed stream ID was 0.
+2026-01-31 21:47:20.225 +02:00 [DBG] The connection queue processing loop for 0HNJ0VUB6TJ5O completed.
+2026-01-31 21:47:20.228 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5O" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-01-31 21:47:20.249 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5O" stopped.
+2026-01-31 21:47:24.854 +02:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7097/api/Users/login - null null
+2026-01-31 21:47:24.861 +02:00 [DBG] OPTIONS requests are not supported
+2026-01-31 21:47:24.863 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/login'
+2026-01-31 21:47:24.866 +02:00 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2026-01-31 21:47:24.868 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 21:47:24.870 +02:00 [INF] CORS policy execution successful.
+2026-01-31 21:47:24.872 +02:00 [DBG] The request is a preflight request.
+2026-01-31 21:47:24.875 +02:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7097/api/Users/login - 204 null null 20.4217ms
+2026-01-31 21:47:24.876 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7097/api/Users/login - application/json 26
+2026-01-31 21:47:24.887 +02:00 [DBG] POST requests are not supported
+2026-01-31 21:47:24.890 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/login'
+2026-01-31 21:47:24.893 +02:00 [DBG] Endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)' with route pattern 'api/Users/login' is valid for the request path '/api/Users/login'
+2026-01-31 21:47:24.897 +02:00 [DBG] Request matched endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 21:47:24.900 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 21:47:24.903 +02:00 [INF] CORS policy execution successful.
+2026-01-31 21:47:24.906 +02:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-01-31 21:47:24.909 +02:00 [INF] Executing endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 21:47:24.913 +02:00 [INF] Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BsdFinalProject.DTOs.LoginDto) on controller BsdFinalProject.Controllers.UsersController (BsdFinalProject).
+2026-01-31 21:47:24.918 +02:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-01-31 21:47:24.921 +02:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-01-31 21:47:24.926 +02:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-01-31 21:47:24.931 +02:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-01-31 21:47:24.936 +02:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-01-31 21:47:24.941 +02:00 [DBG] Executing controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 21:47:24.958 +02:00 [DBG] Executed controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 21:47:24.962 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' ...
+2026-01-31 21:47:24.966 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' using the name '' in request data ...
+2026-01-31 21:47:24.970 +02:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2026-01-31 21:47:24.974 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5P", Request id "0HNJ0VUB6TJ5P:00000007": started reading request body.
+2026-01-31 21:47:24.977 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5P", Request id "0HNJ0VUB6TJ5P:00000007": done reading request body.
+2026-01-31 21:47:24.981 +02:00 [DBG] JSON input formatter succeeded, deserializing to type 'BsdFinalProject.DTOs.LoginDto'
+2026-01-31 21:47:24.984 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 21:47:24.988 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 21:47:24.992 +02:00 [DBG] Attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' ...
+2026-01-31 21:47:24.996 +02:00 [DBG] Done attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 21:47:25.000 +02:00 [DBG] The request has model state errors, returning an error response.
+2026-01-31 21:47:25.003 +02:00 [DBG] Request was short circuited at action filter 'Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter'.
+2026-01-31 21:47:25.006 +02:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-01-31 21:47:25.013 +02:00 [DBG] No information found on request to perform content negotiation.
+2026-01-31 21:47:25.016 +02:00 [DBG] Attempting to select the first output formatter in the output formatters list which supports a content type from the explicitly specified content types '["application/problem+json","application/problem+xml","application/problem+json","application/problem+xml"]'.
+2026-01-31 21:47:25.024 +02:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/problem+json' to write the response.
+2026-01-31 21:47:25.030 +02:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-01-31 21:47:25.034 +02:00 [INF] Executed action BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject) in 93.4255ms
+2026-01-31 21:47:25.038 +02:00 [INF] Executed endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 21:47:25.041 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7097/api/Users/login - 400 null application/problem+json; charset=utf-8 164.8576ms
+2026-01-31 22:12:27.777 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5P" received FIN.
+2026-01-31 22:12:27.781 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5P" is closed. The last processed stream ID was 7.
+2026-01-31 22:12:27.783 +02:00 [DBG] The connection queue processing loop for 0HNJ0VUB6TJ5P completed.
+2026-01-31 22:12:27.794 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5P" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-01-31 22:12:27.812 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5P" stopped.
+2026-01-31 23:00:51.938 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q" accepted.
+2026-01-31 23:00:51.946 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q" started.
+2026-01-31 23:00:51.965 +02:00 [DBG] Connection 0HNJ0VUB6TJ5Q established using the following protocol: "Tls13"
+2026-01-31 23:00:51.972 +02:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7097/api/Users/login - null null
+2026-01-31 23:00:51.980 +02:00 [DBG] OPTIONS requests are not supported
+2026-01-31 23:00:51.982 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/login'
+2026-01-31 23:00:51.986 +02:00 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2026-01-31 23:00:51.990 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 23:00:51.993 +02:00 [INF] CORS policy execution successful.
+2026-01-31 23:00:51.995 +02:00 [DBG] The request is a preflight request.
+2026-01-31 23:00:51.998 +02:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7097/api/Users/login - 204 null null 25.7586ms
+2026-01-31 23:00:52.011 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7097/api/Users/login - application/json 45
+2026-01-31 23:00:52.024 +02:00 [DBG] POST requests are not supported
+2026-01-31 23:00:52.027 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/login'
+2026-01-31 23:00:52.031 +02:00 [DBG] Endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)' with route pattern 'api/Users/login' is valid for the request path '/api/Users/login'
+2026-01-31 23:00:52.035 +02:00 [DBG] Request matched endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:00:52.038 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 23:00:52.041 +02:00 [INF] CORS policy execution successful.
+2026-01-31 23:00:52.047 +02:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-01-31 23:00:52.050 +02:00 [INF] Executing endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:00:52.054 +02:00 [INF] Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BsdFinalProject.DTOs.LoginDto) on controller BsdFinalProject.Controllers.UsersController (BsdFinalProject).
+2026-01-31 23:00:52.059 +02:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-01-31 23:00:52.063 +02:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-01-31 23:00:52.067 +02:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-01-31 23:00:52.073 +02:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-01-31 23:00:52.077 +02:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-01-31 23:00:52.081 +02:00 [DBG] Executing controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:00:52.094 +02:00 [DBG] Executed controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:00:52.097 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' ...
+2026-01-31 23:00:52.105 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' using the name '' in request data ...
+2026-01-31 23:00:52.109 +02:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2026-01-31 23:00:52.113 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q", Request id "0HNJ0VUB6TJ5Q:00000003": started reading request body.
+2026-01-31 23:00:52.116 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q", Request id "0HNJ0VUB6TJ5Q:00000003": done reading request body.
+2026-01-31 23:00:52.121 +02:00 [DBG] JSON input formatter succeeded, deserializing to type 'BsdFinalProject.DTOs.LoginDto'
+2026-01-31 23:00:52.124 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:00:52.127 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:00:52.130 +02:00 [DBG] Attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' ...
+2026-01-31 23:00:52.138 +02:00 [DBG] Done attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:00:52.148 +02:00 [INF] Attempting to log in user with email: use@gmail.com
+2026-01-31 23:00:55.486 +02:00 [INF] start Verifying password using PBKDF2.
+2026-01-31 23:00:55.489 +02:00 [WRN] Login failed: Invalid password for email: use@gmail.com
+2026-01-31 23:00:55.493 +02:00 [WRN] User login failed: Invalid credentials.
+2026-01-31 23:00:55.501 +02:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-01-31 23:00:55.509 +02:00 [DBG] No information found on request to perform content negotiation.
+2026-01-31 23:00:55.511 +02:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-01-31 23:00:55.514 +02:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-01-31 23:00:55.517 +02:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2026-01-31 23:00:55.522 +02:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-31 23:00:55.530 +02:00 [INF] Executed action BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject) in 3449.7184ms
+2026-01-31 23:00:55.537 +02:00 [INF] Executed endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:00:55.543 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7097/api/Users/login - 400 null application/json; charset=utf-8 3532.4989ms
+2026-01-31 23:02:18.146 +02:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7097/api/Users/login - null null
+2026-01-31 23:02:18.166 +02:00 [DBG] OPTIONS requests are not supported
+2026-01-31 23:02:18.169 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/login'
+2026-01-31 23:02:18.173 +02:00 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2026-01-31 23:02:18.176 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 23:02:18.180 +02:00 [INF] CORS policy execution successful.
+2026-01-31 23:02:18.183 +02:00 [DBG] The request is a preflight request.
+2026-01-31 23:02:18.186 +02:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7097/api/Users/login - 204 null null 39.9065ms
+2026-01-31 23:02:18.187 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7097/api/Users/login - application/json 45
+2026-01-31 23:02:18.203 +02:00 [DBG] POST requests are not supported
+2026-01-31 23:02:18.206 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/login'
+2026-01-31 23:02:18.209 +02:00 [DBG] Endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)' with route pattern 'api/Users/login' is valid for the request path '/api/Users/login'
+2026-01-31 23:02:18.214 +02:00 [DBG] Request matched endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:02:18.217 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 23:02:18.221 +02:00 [INF] CORS policy execution successful.
+2026-01-31 23:02:18.223 +02:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-01-31 23:02:18.226 +02:00 [INF] Executing endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:02:18.230 +02:00 [INF] Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BsdFinalProject.DTOs.LoginDto) on controller BsdFinalProject.Controllers.UsersController (BsdFinalProject).
+2026-01-31 23:02:18.236 +02:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-01-31 23:02:18.241 +02:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-01-31 23:02:18.246 +02:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-01-31 23:02:18.252 +02:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-01-31 23:02:18.256 +02:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-01-31 23:02:18.261 +02:00 [DBG] Executing controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:02:18.266 +02:00 [DBG] Executed controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:02:18.270 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' ...
+2026-01-31 23:02:18.274 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' using the name '' in request data ...
+2026-01-31 23:02:18.279 +02:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2026-01-31 23:02:18.283 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q", Request id "0HNJ0VUB6TJ5Q:00000007": started reading request body.
+2026-01-31 23:02:18.287 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q", Request id "0HNJ0VUB6TJ5Q:00000007": done reading request body.
+2026-01-31 23:02:18.292 +02:00 [DBG] JSON input formatter succeeded, deserializing to type 'BsdFinalProject.DTOs.LoginDto'
+2026-01-31 23:02:18.295 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:02:18.300 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:02:18.304 +02:00 [DBG] Attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' ...
+2026-01-31 23:02:18.308 +02:00 [DBG] Done attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:02:18.312 +02:00 [INF] Attempting to log in user with email: use@gmail.com
+2026-01-31 23:02:18.419 +02:00 [INF] start Verifying password using PBKDF2.
+2026-01-31 23:02:18.422 +02:00 [WRN] Login failed: Invalid password for email: use@gmail.com
+2026-01-31 23:02:18.425 +02:00 [WRN] User login failed: Invalid credentials.
+2026-01-31 23:02:18.428 +02:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-01-31 23:02:18.435 +02:00 [DBG] No information found on request to perform content negotiation.
+2026-01-31 23:02:18.438 +02:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-01-31 23:02:18.440 +02:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-01-31 23:02:18.443 +02:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2026-01-31 23:02:18.447 +02:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-31 23:02:18.452 +02:00 [INF] Executed action BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject) in 190.9139ms
+2026-01-31 23:02:18.456 +02:00 [INF] Executed endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:02:18.460 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7097/api/Users/login - 400 null application/json; charset=utf-8 272.2482ms
+2026-01-31 23:08:04.582 +02:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7097/api/Users/login - null null
+2026-01-31 23:08:04.596 +02:00 [DBG] OPTIONS requests are not supported
+2026-01-31 23:08:04.599 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/login'
+2026-01-31 23:08:04.602 +02:00 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2026-01-31 23:08:04.604 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 23:08:04.607 +02:00 [INF] CORS policy execution successful.
+2026-01-31 23:08:04.609 +02:00 [DBG] The request is a preflight request.
+2026-01-31 23:08:04.612 +02:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7097/api/Users/login - 204 null null 30.6988ms
+2026-01-31 23:08:04.615 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7097/api/Users/login - application/json 45
+2026-01-31 23:08:04.629 +02:00 [DBG] POST requests are not supported
+2026-01-31 23:08:04.632 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/login'
+2026-01-31 23:08:04.635 +02:00 [DBG] Endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)' with route pattern 'api/Users/login' is valid for the request path '/api/Users/login'
+2026-01-31 23:08:04.639 +02:00 [DBG] Request matched endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:08:04.642 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 23:08:04.647 +02:00 [INF] CORS policy execution successful.
+2026-01-31 23:08:04.649 +02:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-01-31 23:08:04.652 +02:00 [INF] Executing endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:08:04.655 +02:00 [INF] Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BsdFinalProject.DTOs.LoginDto) on controller BsdFinalProject.Controllers.UsersController (BsdFinalProject).
+2026-01-31 23:08:04.664 +02:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-01-31 23:08:04.668 +02:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-01-31 23:08:04.672 +02:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-01-31 23:08:04.676 +02:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-01-31 23:08:04.681 +02:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-01-31 23:08:04.684 +02:00 [DBG] Executing controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:08:04.688 +02:00 [DBG] Executed controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:08:04.692 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' ...
+2026-01-31 23:08:04.696 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' using the name '' in request data ...
+2026-01-31 23:08:04.699 +02:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2026-01-31 23:08:04.702 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q", Request id "0HNJ0VUB6TJ5Q:0000000B": started reading request body.
+2026-01-31 23:08:04.706 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q", Request id "0HNJ0VUB6TJ5Q:0000000B": done reading request body.
+2026-01-31 23:08:04.710 +02:00 [DBG] JSON input formatter succeeded, deserializing to type 'BsdFinalProject.DTOs.LoginDto'
+2026-01-31 23:08:04.714 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:08:04.717 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:08:04.721 +02:00 [DBG] Attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' ...
+2026-01-31 23:08:04.725 +02:00 [DBG] Done attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:08:04.731 +02:00 [INF] Attempting to log in user with email: use@gmail.com
+2026-01-31 23:08:04.778 +02:00 [INF] start Verifying password using PBKDF2.
+2026-01-31 23:08:04.780 +02:00 [WRN] Login failed: Invalid password for email: use@gmail.com
+2026-01-31 23:08:04.782 +02:00 [WRN] User login failed: Invalid credentials.
+2026-01-31 23:08:04.785 +02:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-01-31 23:08:04.791 +02:00 [DBG] No information found on request to perform content negotiation.
+2026-01-31 23:08:04.793 +02:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-01-31 23:08:04.795 +02:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-01-31 23:08:04.797 +02:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2026-01-31 23:08:04.801 +02:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-31 23:08:04.805 +02:00 [INF] Executed action BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject) in 120.6124ms
+2026-01-31 23:08:04.808 +02:00 [INF] Executed endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:08:04.812 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7097/api/Users/login - 400 null application/json; charset=utf-8 197.3665ms
+2026-01-31 23:08:56.190 +02:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7097/api/Users/login - null null
+2026-01-31 23:08:56.209 +02:00 [DBG] OPTIONS requests are not supported
+2026-01-31 23:08:56.213 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/login'
+2026-01-31 23:08:56.216 +02:00 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2026-01-31 23:08:56.221 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 23:08:56.225 +02:00 [INF] CORS policy execution successful.
+2026-01-31 23:08:56.227 +02:00 [DBG] The request is a preflight request.
+2026-01-31 23:08:56.229 +02:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7097/api/Users/login - 204 null null 39.1341ms
+2026-01-31 23:08:56.243 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7097/api/Users/login - application/json 45
+2026-01-31 23:08:56.266 +02:00 [DBG] POST requests are not supported
+2026-01-31 23:08:56.271 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/login'
+2026-01-31 23:08:56.274 +02:00 [DBG] Endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)' with route pattern 'api/Users/login' is valid for the request path '/api/Users/login'
+2026-01-31 23:08:56.278 +02:00 [DBG] Request matched endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:08:56.281 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 23:08:56.285 +02:00 [INF] CORS policy execution successful.
+2026-01-31 23:08:56.289 +02:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-01-31 23:08:56.292 +02:00 [INF] Executing endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:08:56.295 +02:00 [INF] Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BsdFinalProject.DTOs.LoginDto) on controller BsdFinalProject.Controllers.UsersController (BsdFinalProject).
+2026-01-31 23:08:56.300 +02:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-01-31 23:08:56.307 +02:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-01-31 23:08:56.311 +02:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-01-31 23:08:56.316 +02:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-01-31 23:08:56.323 +02:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-01-31 23:08:56.327 +02:00 [DBG] Executing controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:08:56.331 +02:00 [DBG] Executed controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:08:56.337 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' ...
+2026-01-31 23:08:56.341 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' using the name '' in request data ...
+2026-01-31 23:08:56.345 +02:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2026-01-31 23:08:56.349 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q", Request id "0HNJ0VUB6TJ5Q:0000000F": started reading request body.
+2026-01-31 23:08:56.353 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q", Request id "0HNJ0VUB6TJ5Q:0000000F": done reading request body.
+2026-01-31 23:08:56.357 +02:00 [DBG] JSON input formatter succeeded, deserializing to type 'BsdFinalProject.DTOs.LoginDto'
+2026-01-31 23:08:56.359 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:08:56.363 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:08:56.366 +02:00 [DBG] Attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' ...
+2026-01-31 23:08:56.371 +02:00 [DBG] Done attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:08:56.374 +02:00 [INF] Attempting to log in user with email: use@gmail.com
+2026-01-31 23:08:56.383 +02:00 [INF] start Verifying password using PBKDF2.
+2026-01-31 23:08:56.386 +02:00 [WRN] Login failed: Invalid password for email: use@gmail.com
+2026-01-31 23:08:56.389 +02:00 [WRN] User login failed: Invalid credentials.
+2026-01-31 23:08:56.392 +02:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-01-31 23:08:56.399 +02:00 [DBG] No information found on request to perform content negotiation.
+2026-01-31 23:08:56.404 +02:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-01-31 23:08:56.407 +02:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-01-31 23:08:56.410 +02:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2026-01-31 23:08:56.414 +02:00 [INF] Executing BadRequestObjectResult, writing value of type '<>f__AnonymousType2`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-31 23:08:56.419 +02:00 [INF] Executed action BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject) in 92.0727ms
+2026-01-31 23:08:56.425 +02:00 [INF] Executed endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:08:56.429 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7097/api/Users/login - 400 null application/json; charset=utf-8 185.7579ms
+2026-01-31 23:10:54.316 +02:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7097/api/Users/register - null null
+2026-01-31 23:10:54.334 +02:00 [DBG] OPTIONS requests are not supported
+2026-01-31 23:10:54.337 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/register'
+2026-01-31 23:10:54.341 +02:00 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2026-01-31 23:10:54.344 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 23:10:54.347 +02:00 [INF] CORS policy execution successful.
+2026-01-31 23:10:54.350 +02:00 [DBG] The request is a preflight request.
+2026-01-31 23:10:54.353 +02:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7097/api/Users/register - 204 null null 36.6088ms
+2026-01-31 23:10:54.398 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7097/api/Users/register - application/json 109
+2026-01-31 23:10:54.409 +02:00 [DBG] POST requests are not supported
+2026-01-31 23:10:54.412 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/register'
+2026-01-31 23:10:54.415 +02:00 [DBG] Endpoint 'BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject)' with route pattern 'api/Users/register' is valid for the request path '/api/Users/register'
+2026-01-31 23:10:54.419 +02:00 [DBG] Request matched endpoint 'BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject)'
+2026-01-31 23:10:54.422 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 23:10:54.425 +02:00 [INF] CORS policy execution successful.
+2026-01-31 23:10:54.427 +02:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-01-31 23:10:54.429 +02:00 [INF] Executing endpoint 'BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject)'
+2026-01-31 23:10:54.439 +02:00 [INF] Route matched with {action = "UserRegister", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegister(BsdFinalProject.DTOs.CreateUserDto) on controller BsdFinalProject.Controllers.UsersController (BsdFinalProject).
+2026-01-31 23:10:54.444 +02:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-01-31 23:10:54.448 +02:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-01-31 23:10:54.452 +02:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-01-31 23:10:54.456 +02:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-01-31 23:10:54.460 +02:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-01-31 23:10:54.463 +02:00 [DBG] Executing controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:10:54.467 +02:00 [DBG] Executed controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:10:54.470 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto' ...
+2026-01-31 23:10:54.474 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto' using the name '' in request data ...
+2026-01-31 23:10:54.478 +02:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2026-01-31 23:10:54.483 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q", Request id "0HNJ0VUB6TJ5Q:00000013": started reading request body.
+2026-01-31 23:10:54.486 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q", Request id "0HNJ0VUB6TJ5Q:00000013": done reading request body.
+2026-01-31 23:10:54.492 +02:00 [DBG] JSON input formatter succeeded, deserializing to type 'BsdFinalProject.DTOs.CreateUserDto'
+2026-01-31 23:10:54.495 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto'.
+2026-01-31 23:10:54.498 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto'.
+2026-01-31 23:10:54.501 +02:00 [DBG] Attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto' ...
+2026-01-31 23:10:54.507 +02:00 [DBG] Done attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto'.
+2026-01-31 23:10:54.513 +02:00 [INF] start Registering user with email: gili@gmail.com
+2026-01-31 23:10:54.516 +02:00 [INF] Checking if email gili@gmail.com is already in use.
+2026-01-31 23:10:54.526 +02:00 [INF] Hashing password for email: gili@gmail.com
+2026-01-31 23:10:54.530 +02:00 [INF] start Hashing password using PBKDF2.
+2026-01-31 23:10:54.672 +02:00 [INF] try Creating new user record for email: gili@gmail.com
+2026-01-31 23:10:54.915 +02:00 [INF] User registered successfully with email: gili@gmail.com
+2026-01-31 23:10:54.920 +02:00 [INF] start Creating JWT token for user with email: gili@gmail.com
+2026-01-31 23:10:54.977 +02:00 [INF] JWT token created for user with email: gili@gmail.com
+2026-01-31 23:10:54.981 +02:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-01-31 23:10:54.986 +02:00 [DBG] No information found on request to perform content negotiation.
+2026-01-31 23:10:54.989 +02:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-01-31 23:10:54.990 +02:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-01-31 23:10:54.992 +02:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2026-01-31 23:10:54.996 +02:00 [INF] Executing CreatedResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-31 23:10:55.001 +02:00 [INF] Executed action BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject) in 537.8521ms
+2026-01-31 23:10:55.012 +02:00 [INF] Executed endpoint 'BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject)'
+2026-01-31 23:10:55.015 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7097/api/Users/register - 201 null application/json; charset=utf-8 617.3174ms
+2026-01-31 23:12:06.854 +02:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7097/api/Users/login - null null
+2026-01-31 23:12:07.064 +02:00 [DBG] OPTIONS requests are not supported
+2026-01-31 23:12:07.099 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/login'
+2026-01-31 23:12:07.104 +02:00 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2026-01-31 23:12:07.107 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 23:12:07.114 +02:00 [INF] CORS policy execution successful.
+2026-01-31 23:12:07.117 +02:00 [DBG] The request is a preflight request.
+2026-01-31 23:12:07.120 +02:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7097/api/Users/login - 204 null null 266.7539ms
+2026-01-31 23:12:07.176 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7097/api/Users/login - application/json 46
+2026-01-31 23:12:07.196 +02:00 [DBG] POST requests are not supported
+2026-01-31 23:12:07.200 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/login'
+2026-01-31 23:12:07.204 +02:00 [DBG] Endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)' with route pattern 'api/Users/login' is valid for the request path '/api/Users/login'
+2026-01-31 23:12:07.214 +02:00 [DBG] Request matched endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:12:07.218 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 23:12:07.223 +02:00 [INF] CORS policy execution successful.
+2026-01-31 23:12:07.228 +02:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-01-31 23:12:07.234 +02:00 [INF] Executing endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:12:07.245 +02:00 [INF] Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BsdFinalProject.DTOs.LoginDto) on controller BsdFinalProject.Controllers.UsersController (BsdFinalProject).
+2026-01-31 23:12:07.252 +02:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-01-31 23:12:07.258 +02:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-01-31 23:12:07.265 +02:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-01-31 23:12:07.276 +02:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-01-31 23:12:07.283 +02:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-01-31 23:12:07.291 +02:00 [DBG] Executing controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:12:07.298 +02:00 [DBG] Executed controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:12:07.309 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' ...
+2026-01-31 23:12:07.317 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' using the name '' in request data ...
+2026-01-31 23:12:07.341 +02:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2026-01-31 23:12:07.356 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q", Request id "0HNJ0VUB6TJ5Q:00000017": started reading request body.
+2026-01-31 23:12:07.368 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q", Request id "0HNJ0VUB6TJ5Q:00000017": done reading request body.
+2026-01-31 23:12:07.373 +02:00 [DBG] JSON input formatter succeeded, deserializing to type 'BsdFinalProject.DTOs.LoginDto'
+2026-01-31 23:12:07.380 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:12:07.386 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:12:07.390 +02:00 [DBG] Attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' ...
+2026-01-31 23:12:07.397 +02:00 [DBG] Done attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:12:07.402 +02:00 [INF] Attempting to log in user with email: gili@gmail.com
+2026-01-31 23:12:07.413 +02:00 [INF] start Verifying password using PBKDF2.
+2026-01-31 23:12:07.616 +02:00 [INF] Password verified for user with email: gili@gmail.com
+2026-01-31 23:12:07.619 +02:00 [INF] start Creating JWT token for user with email: gili@gmail.com
+2026-01-31 23:12:07.623 +02:00 [INF] User logged in successfully with email: gili@gmail.com
+2026-01-31 23:12:07.627 +02:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-01-31 23:12:07.635 +02:00 [DBG] No information found on request to perform content negotiation.
+2026-01-31 23:12:07.637 +02:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-01-31 23:12:07.640 +02:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-01-31 23:12:07.644 +02:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2026-01-31 23:12:07.648 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-31 23:12:07.653 +02:00 [INF] Executed action BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject) in 362.2255ms
+2026-01-31 23:12:07.658 +02:00 [INF] Executed endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:12:07.665 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7097/api/Users/login - 200 null application/json; charset=utf-8 488.2364ms
+2026-01-31 23:12:27.806 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q" received FIN.
+2026-01-31 23:12:27.809 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q" is closed. The last processed stream ID was 23.
+2026-01-31 23:12:27.811 +02:00 [DBG] The connection queue processing loop for 0HNJ0VUB6TJ5Q completed.
+2026-01-31 23:12:27.821 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-01-31 23:12:27.835 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5Q" stopped.
+2026-01-31 23:13:32.366 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5R" accepted.
+2026-01-31 23:13:32.372 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5R" started.
+2026-01-31 23:13:32.398 +02:00 [DBG] Connection 0HNJ0VUB6TJ5R established using the following protocol: "Tls13"
+2026-01-31 23:13:32.404 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7097/api/Users/register - application/json 135
+2026-01-31 23:13:32.423 +02:00 [DBG] POST requests are not supported
+2026-01-31 23:13:32.426 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/register'
+2026-01-31 23:13:32.430 +02:00 [DBG] Endpoint 'BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject)' with route pattern 'api/Users/register' is valid for the request path '/api/Users/register'
+2026-01-31 23:13:32.435 +02:00 [DBG] Request matched endpoint 'BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject)'
+2026-01-31 23:13:32.437 +02:00 [DBG] The request has an origin header: 'https://localhost:7097'.
+2026-01-31 23:13:32.441 +02:00 [INF] CORS policy execution successful.
+2026-01-31 23:13:32.443 +02:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-01-31 23:13:32.446 +02:00 [INF] Executing endpoint 'BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject)'
+2026-01-31 23:13:32.449 +02:00 [INF] Route matched with {action = "UserRegister", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegister(BsdFinalProject.DTOs.CreateUserDto) on controller BsdFinalProject.Controllers.UsersController (BsdFinalProject).
+2026-01-31 23:13:32.454 +02:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-01-31 23:13:32.461 +02:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-01-31 23:13:32.465 +02:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-01-31 23:13:32.471 +02:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-01-31 23:13:32.478 +02:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-01-31 23:13:32.482 +02:00 [DBG] Executing controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:13:32.486 +02:00 [DBG] Executed controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:13:32.491 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto' ...
+2026-01-31 23:13:32.494 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto' using the name '' in request data ...
+2026-01-31 23:13:32.499 +02:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2026-01-31 23:13:32.502 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5R", Request id "0HNJ0VUB6TJ5R:00000001": started reading request body.
+2026-01-31 23:13:32.506 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5R", Request id "0HNJ0VUB6TJ5R:00000001": done reading request body.
+2026-01-31 23:13:32.524 +02:00 [DBG] JSON input formatter threw an exception: '"' is invalid after a value. Expected either ',', '}', or ']'. Path: $ | LineNumber: 6 | BytePositionInLine: 2.
+2026-01-31 23:13:32.528 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto'.
+2026-01-31 23:13:32.531 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto'.
+2026-01-31 23:13:32.535 +02:00 [DBG] Attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto' ...
+2026-01-31 23:13:32.538 +02:00 [DBG] Done attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto'.
+2026-01-31 23:13:32.543 +02:00 [DBG] The request has model state errors, returning an error response.
+2026-01-31 23:13:32.545 +02:00 [DBG] Request was short circuited at action filter 'Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter'.
+2026-01-31 23:13:32.548 +02:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-01-31 23:13:32.555 +02:00 [DBG] No information found on request to perform content negotiation.
+2026-01-31 23:13:32.557 +02:00 [DBG] Attempting to select the first output formatter in the output formatters list which supports a content type from the explicitly specified content types '["application/problem+json","application/problem+xml","application/problem+json","application/problem+xml"]'.
+2026-01-31 23:13:32.564 +02:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/problem+json' to write the response.
+2026-01-31 23:13:32.568 +02:00 [INF] Executing BadRequestObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ValidationProblemDetails'.
+2026-01-31 23:13:32.575 +02:00 [INF] Executed action BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject) in 92.6274ms
+2026-01-31 23:13:32.580 +02:00 [INF] Executed endpoint 'BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject)'
+2026-01-31 23:13:32.583 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7097/api/Users/register - 400 null application/problem+json; charset=utf-8 179.4837ms
+2026-01-31 23:13:44.388 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7097/api/Users/register - application/json 136
+2026-01-31 23:13:44.397 +02:00 [DBG] POST requests are not supported
+2026-01-31 23:13:44.401 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/register'
+2026-01-31 23:13:44.405 +02:00 [DBG] Endpoint 'BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject)' with route pattern 'api/Users/register' is valid for the request path '/api/Users/register'
+2026-01-31 23:13:44.409 +02:00 [DBG] Request matched endpoint 'BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject)'
+2026-01-31 23:13:44.415 +02:00 [DBG] The request has an origin header: 'https://localhost:7097'.
+2026-01-31 23:13:44.419 +02:00 [INF] CORS policy execution successful.
+2026-01-31 23:13:44.421 +02:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-01-31 23:13:44.424 +02:00 [INF] Executing endpoint 'BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject)'
+2026-01-31 23:13:44.427 +02:00 [INF] Route matched with {action = "UserRegister", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegister(BsdFinalProject.DTOs.CreateUserDto) on controller BsdFinalProject.Controllers.UsersController (BsdFinalProject).
+2026-01-31 23:13:44.434 +02:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-01-31 23:13:44.438 +02:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-01-31 23:13:44.443 +02:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-01-31 23:13:44.449 +02:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-01-31 23:13:44.453 +02:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-01-31 23:13:44.457 +02:00 [DBG] Executing controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:13:44.461 +02:00 [DBG] Executed controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:13:44.465 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto' ...
+2026-01-31 23:13:44.469 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto' using the name '' in request data ...
+2026-01-31 23:13:44.473 +02:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2026-01-31 23:13:44.477 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5R", Request id "0HNJ0VUB6TJ5R:00000003": started reading request body.
+2026-01-31 23:13:44.481 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5R", Request id "0HNJ0VUB6TJ5R:00000003": done reading request body.
+2026-01-31 23:13:44.486 +02:00 [DBG] JSON input formatter succeeded, deserializing to type 'BsdFinalProject.DTOs.CreateUserDto'
+2026-01-31 23:13:44.488 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto'.
+2026-01-31 23:13:44.492 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto'.
+2026-01-31 23:13:44.496 +02:00 [DBG] Attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto' ...
+2026-01-31 23:13:44.500 +02:00 [DBG] Done attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto'.
+2026-01-31 23:13:44.504 +02:00 [INF] start Registering user with email: use@example.com
+2026-01-31 23:13:44.507 +02:00 [INF] Checking if email use@example.com is already in use.
+2026-01-31 23:13:44.516 +02:00 [INF] Hashing password for email: use@example.com
+2026-01-31 23:13:44.519 +02:00 [INF] start Hashing password using PBKDF2.
+2026-01-31 23:13:44.652 +02:00 [INF] try Creating new user record for email: use@example.com
+2026-01-31 23:13:44.665 +02:00 [INF] User registered successfully with email: use@example.com
+2026-01-31 23:13:44.667 +02:00 [INF] start Creating JWT token for user with email: use@example.com
+2026-01-31 23:13:44.670 +02:00 [INF] JWT token created for user with email: use@example.com
+2026-01-31 23:13:44.673 +02:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-01-31 23:13:44.684 +02:00 [DBG] No information found on request to perform content negotiation.
+2026-01-31 23:13:44.687 +02:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-01-31 23:13:44.690 +02:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-01-31 23:13:44.692 +02:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2026-01-31 23:13:44.697 +02:00 [INF] Executing CreatedResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-31 23:13:44.701 +02:00 [INF] Executed action BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject) in 244.3852ms
+2026-01-31 23:13:44.706 +02:00 [INF] Executed endpoint 'BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject)'
+2026-01-31 23:13:44.709 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7097/api/Users/register - 201 null application/json; charset=utf-8 321.4114ms
+2026-01-31 23:14:43.408 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7097/api/Users/register - application/json 135
+2026-01-31 23:14:43.464 +02:00 [DBG] POST requests are not supported
+2026-01-31 23:14:43.467 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/register'
+2026-01-31 23:14:43.471 +02:00 [DBG] Endpoint 'BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject)' with route pattern 'api/Users/register' is valid for the request path '/api/Users/register'
+2026-01-31 23:14:43.475 +02:00 [DBG] Request matched endpoint 'BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject)'
+2026-01-31 23:14:43.478 +02:00 [DBG] The request has an origin header: 'https://localhost:7097'.
+2026-01-31 23:14:43.482 +02:00 [INF] CORS policy execution successful.
+2026-01-31 23:14:43.484 +02:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-01-31 23:14:43.487 +02:00 [INF] Executing endpoint 'BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject)'
+2026-01-31 23:14:43.490 +02:00 [INF] Route matched with {action = "UserRegister", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UserRegister(BsdFinalProject.DTOs.CreateUserDto) on controller BsdFinalProject.Controllers.UsersController (BsdFinalProject).
+2026-01-31 23:14:43.495 +02:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-01-31 23:14:43.499 +02:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-01-31 23:14:43.503 +02:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-01-31 23:14:43.509 +02:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-01-31 23:14:43.513 +02:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-01-31 23:14:43.518 +02:00 [DBG] Executing controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:14:43.523 +02:00 [DBG] Executed controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:14:43.527 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto' ...
+2026-01-31 23:14:43.532 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto' using the name '' in request data ...
+2026-01-31 23:14:43.536 +02:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2026-01-31 23:14:43.540 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5R", Request id "0HNJ0VUB6TJ5R:00000005": started reading request body.
+2026-01-31 23:14:43.543 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5R", Request id "0HNJ0VUB6TJ5R:00000005": done reading request body.
+2026-01-31 23:14:43.551 +02:00 [DBG] JSON input formatter succeeded, deserializing to type 'BsdFinalProject.DTOs.CreateUserDto'
+2026-01-31 23:14:43.554 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto'.
+2026-01-31 23:14:43.557 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto'.
+2026-01-31 23:14:43.561 +02:00 [DBG] Attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto' ...
+2026-01-31 23:14:43.566 +02:00 [DBG] Done attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.CreateUserDto'.
+2026-01-31 23:14:43.570 +02:00 [INF] start Registering user with email: us@example.com
+2026-01-31 23:14:43.573 +02:00 [INF] Checking if email us@example.com is already in use.
+2026-01-31 23:14:43.582 +02:00 [INF] Hashing password for email: us@example.com
+2026-01-31 23:14:43.585 +02:00 [INF] start Hashing password using PBKDF2.
+2026-01-31 23:14:43.760 +02:00 [INF] try Creating new user record for email: us@example.com
+2026-01-31 23:14:43.770 +02:00 [INF] User registered successfully with email: us@example.com
+2026-01-31 23:14:43.773 +02:00 [INF] start Creating JWT token for user with email: us@example.com
+2026-01-31 23:14:43.776 +02:00 [INF] JWT token created for user with email: us@example.com
+2026-01-31 23:14:43.781 +02:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-01-31 23:14:43.788 +02:00 [DBG] No information found on request to perform content negotiation.
+2026-01-31 23:14:43.791 +02:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-01-31 23:14:43.793 +02:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-01-31 23:14:43.796 +02:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2026-01-31 23:14:43.801 +02:00 [INF] Executing CreatedResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-31 23:14:43.805 +02:00 [INF] Executed action BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject) in 287.2005ms
+2026-01-31 23:14:43.810 +02:00 [INF] Executed endpoint 'BsdFinalProject.Controllers.UsersController.UserRegister (BsdFinalProject)'
+2026-01-31 23:14:43.815 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7097/api/Users/register - 201 null application/json; charset=utf-8 406.896ms
+2026-01-31 23:15:16.772 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5S" accepted.
+2026-01-31 23:15:16.776 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5S" started.
+2026-01-31 23:15:16.784 +02:00 [DBG] Connection 0HNJ0VUB6TJ5S established using the following protocol: "Tls13"
+2026-01-31 23:15:16.790 +02:00 [INF] Request starting HTTP/2 OPTIONS https://localhost:7097/api/Users/login - null null
+2026-01-31 23:15:16.807 +02:00 [DBG] OPTIONS requests are not supported
+2026-01-31 23:15:16.810 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/login'
+2026-01-31 23:15:16.813 +02:00 [DBG] Request matched endpoint '405 HTTP Method Not Supported'
+2026-01-31 23:15:16.816 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 23:15:16.819 +02:00 [INF] CORS policy execution successful.
+2026-01-31 23:15:16.821 +02:00 [DBG] The request is a preflight request.
+2026-01-31 23:15:16.824 +02:00 [INF] Request finished HTTP/2 OPTIONS https://localhost:7097/api/Users/login - 204 null null 34.1359ms
+2026-01-31 23:15:16.826 +02:00 [INF] Request starting HTTP/2 POST https://localhost:7097/api/Users/login - application/json 46
+2026-01-31 23:15:16.840 +02:00 [DBG] POST requests are not supported
+2026-01-31 23:15:16.843 +02:00 [DBG] 1 candidate(s) found for the request path '/api/Users/login'
+2026-01-31 23:15:16.846 +02:00 [DBG] Endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)' with route pattern 'api/Users/login' is valid for the request path '/api/Users/login'
+2026-01-31 23:15:16.850 +02:00 [DBG] Request matched endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:15:16.854 +02:00 [DBG] The request has an origin header: 'http://localhost:4200'.
+2026-01-31 23:15:16.857 +02:00 [INF] CORS policy execution successful.
+2026-01-31 23:15:16.859 +02:00 [DBG] AuthenticationScheme: Bearer was not authenticated.
+2026-01-31 23:15:16.862 +02:00 [INF] Executing endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:15:16.865 +02:00 [INF] Route matched with {action = "Login", controller = "Users"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(BsdFinalProject.DTOs.LoginDto) on controller BsdFinalProject.Controllers.UsersController (BsdFinalProject).
+2026-01-31 23:15:16.871 +02:00 [DBG] Execution plan of authorization filters (in the following order): ["None"]
+2026-01-31 23:15:16.875 +02:00 [DBG] Execution plan of resource filters (in the following order): ["None"]
+2026-01-31 23:15:16.879 +02:00 [DBG] Execution plan of action filters (in the following order): ["Microsoft.AspNetCore.Mvc.ModelBinding.UnsupportedContentTypeFilter (Order: -3000)","Microsoft.AspNetCore.Mvc.Infrastructure.ModelStateInvalidFilter (Order: -2000)"]
+2026-01-31 23:15:16.884 +02:00 [DBG] Execution plan of exception filters (in the following order): ["None"]
+2026-01-31 23:15:16.891 +02:00 [DBG] Execution plan of result filters (in the following order): ["Microsoft.AspNetCore.Mvc.Infrastructure.ClientErrorResultFilter (Order: -2000)"]
+2026-01-31 23:15:16.895 +02:00 [DBG] Executing controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:15:16.898 +02:00 [DBG] Executed controller factory for controller BsdFinalProject.Controllers.UsersController (BsdFinalProject)
+2026-01-31 23:15:16.901 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' ...
+2026-01-31 23:15:16.906 +02:00 [DBG] Attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' using the name '' in request data ...
+2026-01-31 23:15:16.910 +02:00 [DBG] Selected input formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonInputFormatter' for content type 'application/json'.
+2026-01-31 23:15:16.914 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5S", Request id "0HNJ0VUB6TJ5S:00000003": started reading request body.
+2026-01-31 23:15:16.918 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5S", Request id "0HNJ0VUB6TJ5S:00000003": done reading request body.
+2026-01-31 23:15:16.923 +02:00 [DBG] JSON input formatter succeeded, deserializing to type 'BsdFinalProject.DTOs.LoginDto'
+2026-01-31 23:15:16.927 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:15:16.931 +02:00 [DBG] Done attempting to bind parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:15:16.935 +02:00 [DBG] Attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto' ...
+2026-01-31 23:15:16.939 +02:00 [DBG] Done attempting to validate the bound parameter 'dto' of type 'BsdFinalProject.DTOs.LoginDto'.
+2026-01-31 23:15:16.943 +02:00 [INF] Attempting to log in user with email: us@example.com
+2026-01-31 23:15:16.948 +02:00 [INF] start Verifying password using PBKDF2.
+2026-01-31 23:15:17.071 +02:00 [INF] Password verified for user with email: us@example.com
+2026-01-31 23:15:17.074 +02:00 [INF] start Creating JWT token for user with email: us@example.com
+2026-01-31 23:15:17.077 +02:00 [INF] User logged in successfully with email: us@example.com
+2026-01-31 23:15:17.080 +02:00 [DBG] List of registered output formatters, in the following order: ["Microsoft.AspNetCore.Mvc.Formatters.HttpNoContentOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StringOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.StreamOutputFormatter","Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter"]
+2026-01-31 23:15:17.086 +02:00 [DBG] No information found on request to perform content negotiation.
+2026-01-31 23:15:17.088 +02:00 [DBG] Attempting to select an output formatter without using a content type as no explicit content types were specified for the response.
+2026-01-31 23:15:17.091 +02:00 [DBG] Attempting to select the first formatter in the output formatters list which can write the result.
+2026-01-31 23:15:17.093 +02:00 [DBG] Selected output formatter 'Microsoft.AspNetCore.Mvc.Formatters.SystemTextJsonOutputFormatter' and content type 'application/json' to write the response.
+2026-01-31 23:15:17.097 +02:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType3`1[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2026-01-31 23:15:17.100 +02:00 [INF] Executed action BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject) in 205.6361ms
+2026-01-31 23:15:17.104 +02:00 [INF] Executed endpoint 'BsdFinalProject.Controllers.UsersController.Login (BsdFinalProject)'
+2026-01-31 23:15:17.108 +02:00 [INF] Request finished HTTP/2 POST https://localhost:7097/api/Users/login - 200 null application/json; charset=utf-8 282.4414ms
+2026-01-31 23:42:27.810 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5S" received FIN.
+2026-01-31 23:42:27.811 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5R" received FIN.
+2026-01-31 23:42:27.816 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5S" is closed. The last processed stream ID was 3.
+2026-01-31 23:42:27.825 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5R" is closed. The last processed stream ID was 5.
+2026-01-31 23:42:27.836 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5S" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-01-31 23:42:27.825 +02:00 [DBG] The connection queue processing loop for 0HNJ0VUB6TJ5S completed.
+2026-01-31 23:42:27.837 +02:00 [DBG] The connection queue processing loop for 0HNJ0VUB6TJ5R completed.
+2026-01-31 23:42:27.850 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5R" sending FIN because: "The Socket transport's send loop completed gracefully."
+2026-01-31 23:42:27.858 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5S" stopped.
+2026-01-31 23:42:27.878 +02:00 [DBG] Connection id "0HNJ0VUB6TJ5R" stopped.

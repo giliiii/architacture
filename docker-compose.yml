@@ -1,0 +1,14 @@
+version: '3.9'
+
+services:
+  redis:
+    image: redis:7.2
+    command: ["redis-server", "--requirepass", "RedisStrongPassword123"]
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "-a", "RedisStrongPassword123", "PING"]
+      interval: 10s
+      timeout: 5s
+      retries: 5

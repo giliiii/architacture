@@ -1,0 +1,7 @@
+C:\גילי-מסלול\updated2\BsdFinalProject\obj\Debug\net9.0\BsdFinalProject.csproj.AssemblyReference.cache
+C:\גילי-מסלול\updated2\BsdFinalProject\obj\Debug\net9.0\rpswa.dswa.cache.json
+C:\גילי-מסלול\updated2\BsdFinalProject\obj\Debug\net9.0\BsdFinalProject.GeneratedMSBuildEditorConfig.editorconfig
+C:\גילי-מסלול\updated2\BsdFinalProject\obj\Debug\net9.0\BsdFinalProject.csproj.CoreCompileInputs.cache
+C:\גילי-מסלול\updated2\BsdFinalProject\obj\Debug\net9.0\BsdFinalProject.MvcApplicationPartsAssemblyInfo.cs
+C:\גילי-מסלול\updated2\BsdFinalProject\obj\Debug\net9.0\BsdFinalProject.MvcApplicationPartsAssemblyInfo.cache
+C:\גילי-מסלול\updated2\BsdFinalProject\obj\Debug\net9.0\BsdFinalProject.sourcelink.json

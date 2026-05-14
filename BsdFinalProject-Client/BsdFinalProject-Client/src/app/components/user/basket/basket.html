@@ -1,0 +1,43 @@
+<p-drawer  position="right"  [style]="{width: '400px'}">
+  <!-- כותרת הסל -->
+  <h2 class="basket-header">סל קניות</h2>
+<p>basket works!</p>
+<div class="basket-container">
+  <!-- כותרת הסל -->
+  <h2 class="basket-header">סל קניות</h2>
+
+  <!-- הצגת סל הקניות אם ישנם פריטים -->
+  <p-table *ngIf="baskets.length > 0" [value]="baskets" class="p-datatable-striped">
+    
+    <!-- כותרות הטבלה -->
+    <ng-template pTemplate="header">
+      <tr>
+        <th>שם המתנה</th>
+        <th>כמות</th>
+        <th>מחיר</th>
+        <th>סך הכל</th>
+        <th>פעולה</th>
+      </tr>
+    </ng-template>
+    
+    <!-- גוף הטבלה - פריטי סל הקניות -->
+    <ng-template pTemplate="body" let-basket>
+      <tr>
+        <td>{{ basket.giftId }}</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>
+          <button pButton icon="pi pi-trash" label="מחק" (click)="deleteBasket(basket.id)" class="p-button-danger"></button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+
+  <!-- אם אין פריטים בסל -->
+  <div *ngIf="baskets.length === 0" class="empty-basket">
+    <p>הסל שלך ריק.</p>
+    <p-button label="הוסף פריטים לסל" icon="pi pi-shopping-cart" (click)="goToShop()" class="p-button-success"></p-button>
+  </div>
+</div>
+</p-drawer>
