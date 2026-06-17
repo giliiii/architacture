@@ -5,7 +5,8 @@
 			<Nullable>enable</Nullable>
 			<ImplicitUsings>enable</ImplicitUsings>
 			<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-		</PropertyGroup>
+		  <UserSecretsId>51efa68d-66de-46d1-8a64-2dcabc4a5b5a</UserSecretsId>
+  </PropertyGroup>
 
 		<ItemGroup>
 			<PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.7" />
