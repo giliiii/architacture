@@ -152,7 +152,6 @@ if (!string.IsNullOrEmpty(key))
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseDeveloperExceptionPage();
@@ -161,6 +160,19 @@ if (app.Environment.IsDevelopment())
     {
         c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
         c.RoutePrefix = string.Empty; // Swagger UI at app root
+    });
+}
+else
+{
+    app.UseExceptionHandler(exceptionHandlerApp =>
+    {
+        exceptionHandlerApp.Run(async context =>
+        {
+            context.Response.StatusCode = Microsoft.AspNetCore.Http.StatusCodes.Status500InternalServerError;
+            context.Response.ContentType = "application/json";
+            var payload = System.Text.Json.JsonSerializer.Serialize(new { error = "An unexpected error occurred." });
+            await context.Response.WriteAsync(payload);
+        });
     });
 }
 
