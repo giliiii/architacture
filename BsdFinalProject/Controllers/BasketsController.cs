@@ -1,6 +1,7 @@
 
 using BsdFinalProject.Data;
 using BsdFinalProject.DTOs;
+using BsdFinalProject.IService;
 using BsdFinalProject.Models;
 using BsdFinalProject.Services;
 using FinalProject.Services;
@@ -17,10 +18,10 @@ namespace FinalProject.Controllers
     public class BasketsController : ControllerBase
     {
         private readonly SaleContext _context;
-        private readonly BasketService _BasketService;
+        private readonly IBasketService _BasketService;
         //public BasketsController(SaleContext context) => _context = context;
 
-        public BasketsController(BasketService basketService, SaleContext context)
+        public BasketsController(IBasketService basketService, SaleContext context)
         {
             _BasketService = basketService;
             _context = context;

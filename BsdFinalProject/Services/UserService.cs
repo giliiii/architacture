@@ -1,6 +1,6 @@
 using BsdFinalProject.DTOs;
 using BsdFinalProject.Models;
-using BsdFinalProject.Repositories;
+using BsdFinalProject.IRepository; // הוספנו את ה-using של הממשקים
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -15,10 +15,12 @@ namespace BsdFinalProject.Services
 {
     public class UserService : IUserService
     {
-        private readonly UserRepository _repo;
+        // שינוי מ-UserRepository ל-IUserRepository
+        private readonly IUserRepository _repo;
         private readonly IConfiguration _config;
 
-        public UserService(UserRepository repo, IConfiguration config)
+        // עדכון הבנאי לקבלת הממשק (Interface)
+        public UserService(IUserRepository repo, IConfiguration config)
         {
             _repo = repo;
             _config = config;
@@ -52,7 +54,7 @@ namespace BsdFinalProject.Services
             return (true, token, null);
         }
 
-        // New: Login implementation
+        // Login implementation
         public async Task<(bool Success, string? Token, string? Error)> LoginAsync(LoginDto dto)
         {
             if (dto == null || string.IsNullOrWhiteSpace(dto.EMail) || string.IsNullOrWhiteSpace(dto.Password))
@@ -79,14 +81,10 @@ namespace BsdFinalProject.Services
 
             var claims = new[]
             {
-                //new Claim(JwtRegisteredClaimNames.Sub, user.Id.ToString()),
-                //new Claim(JwtRegisteredClaimNames.Email, user.EMail ?? string.Empty),
-                //new Claim("name", user.FullName ?? string.Empty),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                 new Claim(ClaimTypes.Email, user.EMail ?? string.Empty),
                 new Claim("name", user.FullName ?? string.Empty),
                 new Claim(ClaimTypes.Role, user.Role.ToString()),
-
             };
 
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key));

@@ -5,20 +5,10 @@
     "version": "v1"
   },
   "paths": {
-    "/api/Baskets/{id}": {
+    "/api/Baskets": {
       "get": {
         "tags": [
           "Baskets"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
         ],
         "responses": {
           "200": {
@@ -52,46 +42,6 @@
           }
         }
       },
-      "delete": {
-        "tags": [
-          "Baskets"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/BasketDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BasketDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/BasketDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Baskets": {
       "post": {
         "tags": [
           "Baskets"
@@ -176,28 +126,50 @@
         }
       }
     },
-    "/api/Cards/{UserId}": {
-      "get": {
+    "/api/Baskets/{id}": {
+      "delete": {
         "tags": [
-          "Cards"
+          "Baskets"
         ],
         "parameters": [
           {
             "name": "id",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "integer",
               "format": "int32"
             }
-          },
-          {
-            "name": "UserId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasketDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasketDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasketDto"
+                }
+              }
             }
           }
+        }
+      }
+    },
+    "/api/Cards": {
+      "get": {
+        "tags": [
+          "Cards"
         ],
         "responses": {
           "200": {
@@ -230,9 +202,7 @@
             }
           }
         }
-      }
-    },
-    "/api/Cards": {
+      },
       "post": {
         "tags": [
           "Cards"
@@ -1272,46 +1242,27 @@
           }
         }
       },
-      "post": {
+      "delete": {
         "tags": [
           "Winners"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateWinnerDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateWinnerDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateWinnerDto"
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "Success",
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/WinnerDto"
+                  "type": "boolean"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WinnerDto"
+                  "type": "boolean"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/WinnerDto"
+                  "type": "boolean"
                 }
               }
             }
@@ -1319,14 +1270,14 @@
         }
       }
     },
-    "/api/Winners/{id}": {
-      "get": {
+    "/api/Winners/{GiftId}": {
+      "post": {
         "tags": [
           "Winners"
         ],
         "parameters": [
           {
-            "name": "id",
+            "name": "GiftId",
             "in": "path",
             "required": true,
             "schema": {
@@ -1355,67 +1306,6 @@
                 }
               }
             }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Winners"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateWinnerDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateWinnerDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreateWinnerDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Success"
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Winners"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Success"
           }
         }
       }
@@ -1440,11 +1330,19 @@
           },
           "user": {
             "$ref": "#/components/schemas/User"
+          },
+          "gift": {
+            "$ref": "#/components/schemas/Gift"
           }
         },
         "additionalProperties": false
       },
       "BasketDto": {
+        "required": [
+          "giftId",
+          "id",
+          "userId"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -1491,6 +1389,11 @@
         "additionalProperties": false
       },
       "CardDto": {
+        "required": [
+          "giftId",
+          "id",
+          "userId"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -1534,6 +1437,9 @@
         "additionalProperties": false
       },
       "CategoryDto": {
+        "required": [
+          "id"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -1541,7 +1447,7 @@
             "format": "int32"
           },
           "name": {
-            "maxLength": 20,
+            "maxLength": 100,
             "type": "string",
             "nullable": true
           }
@@ -1573,7 +1479,7 @@
         "type": "object",
         "properties": {
           "name": {
-            "maxLength": 20,
+            "maxLength": 100,
             "type": "string",
             "nullable": true
           },
@@ -1641,24 +1547,6 @@
         },
         "additionalProperties": false
       },
-      "CreateWinnerDto": {
-        "required": [
-          "idGift",
-          "idUser"
-        ],
-        "type": "object",
-        "properties": {
-          "idUser": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "idGift": {
-            "type": "integer",
-            "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
       "Donor": {
         "type": "object",
         "properties": {
@@ -1686,6 +1574,9 @@
         "additionalProperties": false
       },
       "DonorDto": {
+        "required": [
+          "id"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -1693,7 +1584,7 @@
             "format": "int32"
           },
           "name": {
-            "maxLength": 20,
+            "maxLength": 100,
             "type": "string",
             "nullable": true
           },
@@ -1759,6 +1650,8 @@
       },
       "GiftDto": {
         "required": [
+          "cost",
+          "id",
           "name"
         ],
         "type": "object",
@@ -1768,7 +1661,7 @@
             "format": "int32"
           },
           "name": {
-            "maxLength": 30,
+            "maxLength": 100,
             "minLength": 1,
             "type": "string"
           },
@@ -1781,10 +1674,11 @@
             "maximum": 100000,
             "minimum": 0,
             "type": "integer",
-            "format": "int32"
+            "format": "int32",
+            "default": 20
           },
           "picture": {
-            "maxLength": 200,
+            "maxLength": 300,
             "type": "string",
             "nullable": true
           },
@@ -1799,6 +1693,7 @@
           "winnerName": {
             "maxLength": 100,
             "type": "string",
+            "default": "",
             "nullable": true
           }
         },
@@ -1924,6 +1819,11 @@
         "additionalProperties": false
       },
       "WinnerDto": {
+        "required": [
+          "id",
+          "idGift",
+          "idUser"
+        ],
         "type": "object",
         "properties": {
           "id": {

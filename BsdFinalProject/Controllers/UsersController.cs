@@ -1,5 +1,6 @@
 using BsdFinalProject.Data;
 using BsdFinalProject.DTOs;
+using BsdFinalProject.IService;
 using BsdFinalProject.Models;
 using BsdFinalProject.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -13,9 +14,9 @@ namespace BsdFinalProject.Controllers
     public class UsersController : ControllerBase
     {
         private readonly SaleContext _context;
-        private readonly UserService _service;
+        private readonly IUserService _service;
 
-        public UsersController(SaleContext context, UserService service)
+        public UsersController(SaleContext context, IUserService service)
         {
             _context = context;
             _service = service;

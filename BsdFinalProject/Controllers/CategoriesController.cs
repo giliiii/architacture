@@ -1,5 +1,6 @@
 using BsdFinalProject.Data;
 using BsdFinalProject.DTOs;
+using BsdFinalProject.IService;
 using BsdFinalProject.Models;
 using BsdFinalProject.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -12,9 +13,9 @@ namespace BsdFinalProject.Controllers
     public class CategoriesController : ControllerBase
     {
         private readonly SaleContext _context;
-        private readonly CategoryService _categoryService;
-      
-        public CategoriesController(CategoryService categoryService, SaleContext context)
+        private readonly ICategoryService _categoryService;
+
+        public CategoriesController(ICategoryService categoryService, SaleContext context)
         {
             _categoryService = categoryService;
             _context = context;

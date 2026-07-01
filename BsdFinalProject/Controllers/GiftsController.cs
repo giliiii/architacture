@@ -2,6 +2,7 @@ using BsdFinalProject.Data;
 using BsdFinalProject.DTOs;
 using BsdFinalProject.Models;
 using BsdFinalProject.Services;
+using BsdFinalProject.IService; // הוספנו את ה-using עבור הממשק
 using FinalProject.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,10 +15,11 @@ namespace BsdFinalProject.Controllers
     public class GiftsController : ControllerBase
     {
         private readonly SaleContext _context;
-        private readonly GiftService _giftService ;
-        //public BasketsController(SaleContext context) => _context = context;
+        // שינוי הטיפוס לממשק IGiftService
+        private readonly IGiftService _giftService;
 
-        public GiftsController(GiftService giftService, SaleContext context)
+        // עדכון הבנאי שיקבל את הממשק IGiftService
+        public GiftsController(IGiftService giftService, SaleContext context)
         {
             _giftService = giftService;
             _context = context;
@@ -29,6 +31,7 @@ namespace BsdFinalProject.Controllers
             var gifts = await _giftService.GetAllGifts();
             return Ok(gifts);
         }
+
         [HttpGet("{id:int}")]
         public async Task<ActionResult<GiftDto>> GetGiftById(int id)
         {
@@ -39,14 +42,15 @@ namespace BsdFinalProject.Controllers
             }
             return Ok(gift);
         }
+
         [HttpPost]
         [Authorize(Roles = "Manager")]
         public async Task<ActionResult<GiftDto>> CreateNewGift(GiftDto create)
         {
-            
             var createdGift = await _giftService.CreateNewGift(create);
             return CreatedAtAction(nameof(GetGiftById), new { id = createdGift.Id }, createdGift);
         }
+
         [HttpPut("{id:int}")]
         [Authorize(Roles = "Manager")]
         public async Task<ActionResult<GiftDto>> UpdateGift(int id, GiftDto update)
@@ -62,6 +66,7 @@ namespace BsdFinalProject.Controllers
             }
             return Ok(updatedGift);
         }
+
         [HttpDelete("{id:int}")]
         [Authorize(Roles = "Manager")]
         public async Task<ActionResult<GiftDto>> DeleteGift(int id)
@@ -73,19 +78,19 @@ namespace BsdFinalProject.Controllers
             }
             return Ok(deletedGift);
         }
+
         [HttpGet("category/{categoryId:int}")]
         public async Task<ActionResult<List<GiftDto>>> GetGiftsByCategory(int categoryId)
         {
             var gifts = await _giftService.GetGiftsByCategoryId(categoryId);
-            return (gifts == null? null : gifts);
+            return (gifts == null ? null : gifts);
         }
+
         [HttpGet("cost/{price1:int}/{price2:int}")]
         public async Task<ActionResult<List<GiftDto>>> GetGiftsByCost(int price1, int price2)
         {
             var gifts = await _giftService.GetGiftsByCostRange(price1, price2);
             return (gifts == null ? null : gifts);
         }
-
-        
     }
 }

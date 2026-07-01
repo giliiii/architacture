@@ -1,5 +1,6 @@
 using BsdFinalProject.Data;
 using BsdFinalProject.DTOs;
+using BsdFinalProject.IService;
 using BsdFinalProject.Models;
 using BsdFinalProject.Services;
 using FinalProject.Services;
@@ -14,10 +15,10 @@ namespace BsdFinalProject.Controllers
     public class CardsController : ControllerBase
     {
         private readonly SaleContext _context;
-        private readonly CardService _CardService;
+        private readonly ICardService _CardService;
         //public BasketsController(SaleContext context) => _context = context;
 
-        public CardsController(CardService cardService, SaleContext context)
+        public CardsController(ICardService cardService, SaleContext context)
         {
             _CardService = cardService;
             _context = context;

@@ -12,6 +12,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using Serilog;
+using StackExchange.Redis;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
@@ -33,6 +34,21 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
 });
+
+// Configure Redis
+var redisHost = builder.Configuration["Redis:Host"] ?? "localhost";
+var redisPort = int.Parse(builder.Configuration["Redis:Port"] ?? "6379");
+var redisPassword = builder.Configuration["Redis:Password"] ?? "";
+
+var redisConnectionString = $"{redisHost}:{redisPort}";
+if (!string.IsNullOrEmpty(redisPassword))
+{
+    redisConnectionString += $",password={redisPassword}";
+}
+
+var redis = ConnectionMultiplexer.Connect(redisConnectionString);
+builder.Services.AddSingleton<IConnectionMultiplexer>(redis);
+builder.Services.AddScoped<ICacheService, CacheService>();
 
 // Add repository and service registrations
 builder.Services.AddScoped<IUserRepository, UserRepository>();

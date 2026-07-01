@@ -1,5 +1,6 @@
 using BsdFinalProject.Data;
 using BsdFinalProject.DTOs;
+using BsdFinalProject.IService;
 using BsdFinalProject.Models;
 using BsdFinalProject.Services;
 using Microsoft.AspNetCore.Authorization;
@@ -14,8 +15,8 @@ namespace BsdFinalProject.Controllers
     public class WinnersController : ControllerBase
     {
         private readonly SaleContext _context;
-        private readonly WinnerService _winnerService;
-        public WinnersController(SaleContext context, WinnerService winnerService)
+        private readonly IWinnerService _winnerService;
+        public WinnersController(SaleContext context, IWinnerService winnerService)
         {
             _context = context;
             _winnerService = winnerService;

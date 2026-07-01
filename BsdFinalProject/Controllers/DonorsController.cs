@@ -1,5 +1,6 @@
 using BsdFinalProject.Data;
 using BsdFinalProject.DTOs;
+using BsdFinalProject.IService;
 using BsdFinalProject.Models;
 using BsdFinalProject.Services;
 using FinalProject.Services;
@@ -13,10 +14,10 @@ namespace BsdFinalProject.Controllers
     public class DonorsController : ControllerBase
     {
         private readonly SaleContext _context;
-        private readonly DonorService _DonorService;
+        private readonly IDonorService _DonorService;
         //public BasketsController(SaleContext context) => _context = context;
 
-        public DonorsController(DonorService donorService, SaleContext context)
+        public DonorsController(IDonorService donorService, SaleContext context)
         {
             _DonorService = donorService;
             _context = context;

@@ -12,24 +12,47 @@ namespace BsdFinalProject.Services
     {
         private readonly WinnerRepository _repository = new();
         private readonly GiftRepository _Grepository = new();
+        private readonly ICacheService _cacheService;
+        private readonly ILogger<WinnerService> _logger;
+        private const string CACHE_KEY_ALL_WINNERS = "all_winners";
+        private const string CACHE_KEY_PREFIX = "winner_gift_";
+
+        public WinnerService(ICacheService cacheService, ILogger<WinnerService> logger)
+        {
+            _cacheService = cacheService;
+            _logger = logger;
+        }
+
         public async Task<IEnumerable<WinnerDto>> getAllWinners()
         {
+            // Try to get from cache
+            var cachedWinners = await _cacheService.GetAsync<List<WinnerDto>>(CACHE_KEY_ALL_WINNERS);
+            if (cachedWinners != null)
+            {
+                _logger.LogInformation("All winners retrieved from cache");
+                return cachedWinners;
+            }
+
             var winner = await _repository.GetAllWinners();
             if (winner == null)
             {
                 throw new Exception("No winners found.");
             }
-            IEnumerable<WinnerDto> winners = winner.Select(winner => new WinnerDto
+            
+            var winners = winner.Select(w => new WinnerDto
             {
-                Id = winner.Id,
-                IdGift = winner.IdGift,
-                IdUser = winner.IdUser,
-            });
+                Id = w.Id,
+                IdGift = w.IdGift,
+                IdUser = w.IdUser,
+            }).ToList();
+
+            // Store in cache
+            await _cacheService.SetAsync(CACHE_KEY_ALL_WINNERS, winners);
+            _logger.LogInformation("All winners stored in cache");
+
             return winners;
-
-
-
         }
+
         public async Task<WinnerDto?> CreateNewWinner(int giftId)
         {
             Winner existingWinner = await _repository.getWinnerByGiftId(giftId);
@@ -57,6 +80,12 @@ namespace BsdFinalProject.Services
             {
                 throw new Exception("Failed to create a new winner.");
             }
+
+            // Invalidate cache
+            await _cacheService.RemoveAsync(CACHE_KEY_ALL_WINNERS);
+            await _cacheService.RemoveAsync($"{CACHE_KEY_PREFIX}{giftId}");
+            _logger.LogInformation($"Created winner for gift {giftId} and invalidated cache");
+
             WinnerDto w = new WinnerDto
             {
                 Id = createdWinner.Id,
@@ -64,8 +93,8 @@ namespace BsdFinalProject.Services
                 IdGift = createdWinner.IdGift,
             };
             return w;
-
         }
+
         public async Task<bool> DeleteAllWinners()
         {
             var winners = await _repository.GetAllWinners();
@@ -78,12 +107,16 @@ namespace BsdFinalProject.Services
                 var g = await _Grepository.UpdateGift(gift);
                 if (g == null)
                     throw new Exception("Failes to update gift while deleting winners");
-
             }
 
             var delete = await _repository.DeleteAllWinners();
             if (delete == null)
                 throw new Exception("no winner to delete");
+
+            // Invalidate cache
+            await _cacheService.RemoveAsync(CACHE_KEY_ALL_WINNERS);
+            _logger.LogInformation("Deleted all winners and invalidated cache");
+
             return true;
         }
     }
